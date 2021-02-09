@@ -1,2 +1,2 @@
 # BMMalz.github.io
-It's my fun new website :)
+Work in progress website to showcase my projects from college.
