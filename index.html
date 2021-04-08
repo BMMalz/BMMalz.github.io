@@ -1,9 +1,201 @@
+<!DOCTYPE html>
+
 <html>
 <head>
     <title>Home - Benjamin Malz</title>
+    <link rel="stylesheet" href="CSS/generalCSS.css" title="Generic CSS">
 </head>
+<script></script>
 <body>
-    <h1>Viewer beware your are gonna be in for the scare</h1>
+
+    <!-- Start Navbar -->
+
+    <div class="navBar">
+        <table class="navLinks">
+            <tr>
+                <td class="curPage" id="abButton" onclick="abChange()"><a href="#"><div class="fullLink">About</div></a></td>
+                <td class="otherPage" id="projButton" onclick="projChange()"><a href="#projectStart"><div class="fullLink">Projects</div></a></td>
+                <td class="otherPage" id="linksButton" onclick="linksChange()"><a href="#contactStart"><div class="fullLink">Contact & Links</div></a></td>
+            </tr>
+        </table>
+    </div>
+
+    <!-- End Navbar -->
+
+    <!-- Start Blurb/Bio -->
+
+    <div class="blurbSurround">
+        <div>
+            <img class="meImg" src="images/portrait.jpg">
+        </div>
+        <div class="meText">
+            My name is Benjamin Malz. I am a computer scientist who graduated from Wheaton College in May of 2020. I also have a minor in mathematics. One of my passions in the field of computer science is learning new programming languages. I find the different strengths and subtle differences between languages to be extremely interesting! I am always looking to improve my computer science skills with new languages, technologies and techniques!
+            <br><br>
+            On this website you will find all of the projects I worked on over the course of my career as a computer scientist, starting with my very first programs in my introductory coding course. I have also highlighted some of my favorite projects that I've worked on. At the bottom of the page you will find all the information you would need to contact me or view more information about me. 
+        </div>        
+    </div>
+
+    <!-- End Blurb/Bio -->
+
+    <!-- Start Projects -->    
+
+    <p class="infoStrip" id="projectStart"> Projects </p>
+    <div class="floatBoxes">
+        <div class="projectFlex">
+            <a href="https://github.com/BMMalz/COMP-398/tree/main/Wheatcoin">
+                <div class="imgSurround">
+                    <img class="contactImg" src="images/wheatonlogo.jpg" alt="Wheaton logo" style="border-radius: 50%"><br>
+                </div>
+                <p class="contactHeader">Highlight: Wheatcoin</p>
+                A project which simulates mining a cryptocurrency by trying to find a string with a sufficient number of leading zeroes when hashed. Can run several processes simulataneously.
+            </a>
+        </div>
+        <div class="projectFlex">
+            <a href="./webDev/Project3/illusionMain.html">
+                <div class="imgSurround">
+                    <img class="contactImg" src="webDev/Project3/images/zigzagdark.png" alt="Project 3 Background" style="border-radius: 50%"><br>
+                </div>
+                <p class="contactHeader">Highlight: Illusions Site</p>
+                My favorite project from my web development course. The site uses JavaScript animations to disprove two illusions. I had a lot of fun with this one!
+            </a>
+        </div>
+        <div class="projectFlex">
+            <a href="https://github.com/BMMalz/">
+                <div class="imgSurround">
+                    <img class="contactImg" src="images/prolog.png" alt="Prolog code snippet" style="border-radius: 50%;"><br>
+                </div>
+                <p class="contactHeader">Highlight: Family Tree</p>
+                A project which utilizes Prolog to map out a family tree. The user can inquire about the familial ties between two individuals, such as whether they're siblings or cousins.
+            </a>
+        </div>
+        <div class="projectFlex">
+            <a href="https://github.com/BMMalz/COMP-115">
+                <div class="imgSurround">
+                    <img class="contactImg" src="images/python.png" alt="Python logo"><br>
+                </div>
+                <p class="contactHeader">COMP-115</p>
+                Projects from my introductory programming course. These were written in Python.
+            </a>
+        </div>
+        <div class="projectFlex">
+            <a href="https://github.com/BMMalz/COMP-116">
+                <div class="imgSurround">
+                    <img class="contactImg" src="images/cpp.png" alt="C++ logo"><br>
+                </div>
+                <p class="contactHeader">COMP-116</p>
+                Projects from my "Data Structures" course. These were written in C++ to teach us data structure concepts such as linked lists. 
+            </a>
+        </div>
+        <div class="projectFlex">
+            <a href="./webDev/index.html">
+                <div class="imgSurround">
+                    <img class="contactImg" src="images/html5.png" alt="HTML5 logo"><br>
+                </div>
+                <p class="contactHeader">COMP-298</p>
+                Web projects from my "Web Development" course. These showcase my web development growth as I learned new skills, such as JavaScript and PHP.
+            </a>
+        </div>
+        <div class="projectFlex">
+            <a href="https://github.com/BMMalz/COMP-220">
+                <div class="imgSurround">
+                    <img class="contactImg" src="images/terminal.png" alt="Terminal representing assembly language"><br>
+                </div>
+                <p class="contactHeader">COMP-220</p>
+                Projects from my "Computer Organization" course. These were written in assembly language and executed using SPIM.
+            </a>
+        </div>
+        <div class="projectFlex">
+            <a href="https://github.com/BMMalz/COMP-398">
+                <div class="imgSurround">
+                    <img class="contactImg" src="images/c.png" alt="C logo"><br>
+                </div>
+                <p class="contactHeader">COMP-398</p>
+                Projects from my "Systems and Multiprogramming" course. These were written in a C to teach us about differences between C and C++ as well as to utilize mutlithreading. 
+            </a>
+        </div>
+        <div class="projectFlex">
+            <a href="https://github.com/BMMalz/COMP-335">
+                <div class="imgSurround">
+                    <img class="contactImg" src="images/bash.png" alt="Bash logo"><br>
+                </div>
+                <p class="contactHeader">COMP-335</p>
+                Projects from my "Principles of Programming Languages" course. These were written in a variety of languages, including C, Bash and Prolog.
+            </a>
+        </div>
+    </div>
+
+    <!-- End Projects -->
+
+    <!-- Start Contact -->
+
+    <p class="infoStrip" id="contactStart"> Contact & Links </p>
+
+    <div class="floatBoxes">
+        <div class="contactFlex">
+            <a href="mailto:malz_benjamin@wheatoncollege.edu">
+                <div class="imgSurround">
+                    <img class="contactImg" src="images/gmail.png" alt="Gmail logo">
+                </div>
+            </a><p class="contactHeader">Email</p>
+            <a href="mailto:malz_benjamin@wheatoncollege.edu">malz_benjamin@<br>wheatoncollege.edu</a>
+        </div>
+        <div class="contactFlex">
+            <a href="https://www.linkedin.com/in/benjamin-malz/">
+            <div class="imgSurround">
+                <img class="contactImg" src="images/linkedin.png" alt="LinkedIn logo"><br>
+            </div>
+                <p class="contactHeader">LinkedIn</p>
+                Click here to visit my LinkedIn profile.
+            </a></div>
+        <div class="contactFlex">
+            <a href="https://github.com/BMMalz/">
+            <div class="imgSurround">
+                <img class="contactImg" src="images/github.png" alt="GitHub logo"><br>
+            </div>
+            <p class="contactHeader">GitHub</p>
+                Click here to visit my GitHub.
+            </a>
+        </div>
+        <div class="contactFlex">
+            <div class="imgSurround">
+                <img class="contactImg" src="images/phone.png" alt="Google Voice logo (it's a phone)">
+            </div>
+            <p class="contactHeader">Phone</p>
+            (646) 379-6812
+        </div>
+    </div>
+
+    <!-- End Contact -->
+
+    
 
 </body>
 </html>
+
+<script>
+    function abChange(){
+        document.getElementById("abButton").classList.remove("curPage","otherPage");
+        document.getElementById("projButton").classList.remove("curPage","otherPage");
+        document.getElementById("linksButton").classList.remove("curPage","otherPage");
+        document.getElementById("abButton").classList.add("curPage");
+        document.getElementById("projButton").classList.add("otherPage");
+        document.getElementById("linksButton").classList.add("otherPage");
+        
+    };
+    function projChange(){
+        document.getElementById("abButton").classList.remove("curPage","otherPage");
+        document.getElementById("projButton").classList.remove("curPage","otherPage");
+        document.getElementById("linksButton").classList.remove("curPage","otherPage");
+        document.getElementById("abButton").classList.add("otherPage");
+        document.getElementById("projButton").classList.add("curPage");
+        document.getElementById("linksButton").classList.add("otherPage");
+    };
+    function linksChange(){
+        document.getElementById("abButton").classList.remove("curPage","otherPage");
+        document.getElementById("projButton").classList.remove("curPage","otherPage");
+        document.getElementById("linksButton").classList.remove("curPage","otherPage");
+        document.getElementById("abButton").classList.add("otherPage");
+        document.getElementById("projButton").classList.add("otherPage");
+        document.getElementById("linksButton").classList.add("curPage");
+    };
+</script>
