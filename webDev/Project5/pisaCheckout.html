@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>Pisa's Pizza Palace - Checkout</title>
+    
+    <script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <style>
+        @media screen and (min-width: 1000px) {
+        body {
+            background-color: maroon;
+            padding: 0;
+            margin: 0;
+        }
+        a{
+            text-decoration: none;
+            color: inherit;
+        }
+        div#menu {
+            position: fixed;
+            z-index: 2;
+            left: 0px;
+            top: 0px;
+            width: 100%;
+            background-color: #d85454;
+            height: 10vh;
+            text-align: center;
+            box-shadow: 0px 0px 10px #5e5e5e;
+        }
+        table#menu td {
+            display: inline;
+            color: white;
+            font-family: sans-serif;
+            font-size: 3vh;
+            margin-left: 3vw;
+            margin-right: 3vw;
+            padding: 2vh;
+            transition: 0.7s;
+            border-radius: 10px;
+        }
+        table#menu td:hover {
+            cursor: pointer;
+            background-color: #ba3232;
+            color: #ffe177;
+        }
+        table#menu {
+            margin: auto;
+            margin-top: 3vh;
+        }
+        img#logo {
+            height: 9vh;
+            position: absolute;
+            left: 20px;
+            top: 5px;
+            transition: 0.5s;
+            transform: rotate(-45deg);
+        }
+        img#logo:hover {
+            cursor: pointer;
+            transition: 0.5s;
+            transform: rotate(360deg);
+        }
+        img#cart {
+            height: 4vh;
+            position: absolute;
+            right: 50px;
+            top: 2vh;
+            border-radius: 10px;
+            padding: 1vh;
+            transition: 0.5s;
+        }
+        img#cart:hover {
+            background-color: #ffe177;
+            transition: 0.8s;
+            cursor: pointer;   
+        }
+        div#content {
+            width: 90vw;
+            text-align: center;
+            margin: auto;
+        }
+        h1#deals {
+            color: white;
+            font-family: sans-serif;
+            font-size: 8vh;
+            margin-top: 5vh;
+        }
+        div#innerContent {
+            width: 60vw;
+            margin: auto;
+        }
+        img#todaySpecial {
+            height: 50vh;
+            z-index: 1;
+            top: 40vh;
+            left: 30vw;
+        }
+        img#todaySpecial:hover {
+            cursor: pointer;
+        }
+        div#welcome {
+            color: #d85454;
+            font-family: sans-serif;
+            padding-top: 1.5vh;
+            margin-top: 10vh;
+            height: 7vh;
+            font-size: 5vh;
+            background-color: white;
+            text-align: center;
+            width: 100%;
+        }
+        button#buyNow {
+            background-color: maroon;
+            color: white;
+            border-radius: 10px;
+            padding: 2vh;
+            font-family: sans-serif;
+            font-size: 3vh;
+            transition: 0.3s;
+        }
+        button#buyNow:hover {
+            cursor: pointer;
+            background-color: white;
+            color: maroon;
+            transition: 0.3s;
+        }
+        button.orderNow {
+            background-color: maroon;
+            color: white;
+            border-radius: 10px;
+            padding: 2vh;
+            font-family: sans-serif;
+            font-size: 3vh;
+            transition: 0.3s;
+        }
+        button.orderNow:hover {
+            cursor: pointer;
+            background-color: white;
+            color: maroon;
+            transition: 0.3s;
+        }
+        input.orderNow {
+            background-color: maroon;
+            color: white;
+            border-radius: 10px;
+            padding: 2vh;
+            font-family: sans-serif;
+            font-size: 3vh;
+            transition: 0.3s;
+        }
+        input.orderNow:hover {
+            cursor: pointer;
+            background-color: white;
+            color: maroon;
+            transition: 0.3s;
+        }
+        div#footer {
+            margin-top: 10vh;
+            background-color: #474747;
+            padding-top: 6vh;
+            height: 8vh;
+            width: 100%;
+            color: white;
+            text-align: center;
+            font-family: sans-serif;
+        }
+        table#menuTable{
+            margin: auto;
+            text-align: center;
+            border-spacing: 12px;
+        }
+        td#menuCell{
+            font-family: verdana;
+            font-size: 15px;
+            border-radius: 30px;
+            width: 300px;
+            height: 450px;
+            display: inline-block;
+            background-color: white;
+            padding: 20px;
+            padding-top: 5px;
+            text-align: center;
+            margin: 50px;
+            position: relative;
+        }
+        span#price{
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            font-size: 30px;
+            color: green;
+            padding: 5px;
+        }
+        span#menuTitle{
+            font-size: 20px;
+            color: #d85454;
+            padding: 10px;
+        }
+        div#checkOut{
+            font-family: sans-serif;
+            padding: 5px;
+            margin: auto;
+            border-radius: 0px 0px 30px 30px;
+            background-color: white;
+            text-align: center;
+            width: 50vw;
+            font-size: 20px;
+        }
+        h1#checkoutHead
+        {
+            color: #d85454;
+        }
+        
+    }
+    @media screen and (max-width: 1000px) {
+        body {
+            background-color: maroon;
+            width: 100%;
+            margin: 0;
+            padding: 0;
+        }
+        a{
+            text-decoration: none;
+            color: inherit;
+        }
+        div#menu {
+            position: fixed;
+            z-index: 2;
+            left: 0px;
+            top: 0px;
+            width: 100vw;
+            background-color: #d85454;
+            padding-top: 15px;
+            padding-bottom: 15px;
+            box-shadow: 0px 0px 10px #5e5e5e;
+        }
+        table#menu td {
+            display: inline;
+            color: white;
+            font-family: sans-serif;
+            font-size: 15pt;
+            
+            border-radius: 10px;
+            transition: 0.3s;
+            margin-right: 4vw;
+            margin-left: 4vw;
+        }
+        table#menu td:hover {
+            cursor: pointer;
+            background-color: #ba3232;
+            color: #ffe177;
+        }
+        table#menu {
+            margin: auto;
+            text-align: center;
+        }
+        img#logo {
+            display: none;
+        }
+        img#cart {
+            display: none;
+        }
+        div#content {
+            width: 90vw;
+            text-align: center;
+            margin: auto;
+            margin-top: 3vh;
+        }
+        h1#deals {
+            color: white;
+            font-family: sans-serif;
+            font-size: 8vh;
+        }
+        div#innerContent {
+            width: 90vw;
+            margin: auto;
+            margin-top: 0;
+        }
+        img#todaySpecial {
+            height: 30vh;
+            z-index: 1;
+        }
+        img#todaySpecial:hover {
+            cursor: pointer;
+        }
+        div#welcome {
+            color: #d85454;
+            font-family: sans-serif;
+            padding-top: 1.5vh;
+            margin-top: 55px;
+            height: 7vh;
+            font-size: 5vh;
+            background-color: white;
+            text-align: center;
+            width: 100%;
+        }
+        button#buyNow {
+            background-color: maroon;
+            margin-top: 3vh;
+            color: white;
+            border: 2px solid white;
+            border-radius: 10px;
+            padding: 2vh;
+            font-family: sans-serif;
+            font-size: 3vh;
+            transition: 0.3s;
+        }
+        button#buyNow:hover {
+            cursor: pointer;
+            background-color: white;
+            color: maroon;
+            transition: 0.3s;
+        }
+        button.orderNow {
+            background-color: maroon;
+            color: white;
+            border-radius: 10px;
+            padding: 2vh;
+            font-family: sans-serif;
+            font-size: 3vh;
+            transition: 0.3s;
+        }
+        button.orderNow:hover {
+            cursor: pointer;
+            background-color: white;
+            color: maroon;
+            transition: 0.3s;
+        }
+        div#footer {
+            margin-top: 10vh;
+            background-color: #474747;
+            padding-top: 4vh;
+            padding-bottom: 2vh;
+            min-height: 70px;
+            height: 8vh;
+            width: 100%;
+            color: white;
+            font-size: 10pt;
+            
+            text-align: center;
+            font-family: sans-serif;
+        }
+        table#menuTable{
+            margin: auto;
+            text-align: center;
+            border-spacing: 12px;
+        }
+        td#menuCell{
+            font-family: verdana;
+            font-size: 25px;
+            border-radius: 30px;
+            width: 300px;
+            height: 625px;
+            display: inline-block;
+            background-color: white;
+            padding: 20px;
+            text-align: center;
+            margin: 50px;
+            position: relative;
+            
+        }
+        span#price{
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            font-size: 30px;
+            color: green;
+            padding: 5px;
+        }
+        
+        span#menuTitle{
+            font-size: 20px;
+            color: #d85454;
+            padding: 10px;
+        }
+            
+        div#checkOut{
+            font-family: sans-serif;
+            margin-top: 10px;
+            padding: 5px;
+            margin: auto;
+            border-radius: 0px 0px 30px 30px;
+            background-color: white;
+            text-align: center;
+            width: 95vw;
+            font-size: 20px;
+        }
+        h1#checkoutHead
+        {
+            color: #d85454;
+        }
+    }
+    @media screen and (max-width: 500px) {
+        td#menuCell{
+            margin-left: 0;
+            margin-right: 0;
+        }
+        table#menu td {
+            font-size: 10pt;   
+        }
+        div#menu {
+            padding-top: 10px;
+            padding-bottom: 10px;
+        }
+        div#welcome {
+            margin-top: 40px;
+        }
+    }
+    </style>
+</head>
+
+<body>
+    <div id="menu">
+        <img id="logo" src="images/pisaLogo.png">
+        <table id="menu">
+            <tr>
+                <td><b><a href="index.html">HOME</a></b></td>
+                <td><b><a href="pisaOrder.html">ORDER</a></b></td>
+                <td><b><a href="pisaCheckout.html">CHECKOUT</b></a></td>
+            </tr>
+        </table>
+        <a href="pisaCheckout.html"><img id="cart" src="images/cart.png"></a>
+    </div>
+    <div id="welcome"><b id="welcome">CHECKOUT</b></div>
+    
+    <div id="checkOut">
+        <h1 id="checkoutHead">ADDRESS</h1>
+        <div id="addSec">
+        </div>
+        <h1 id="checkoutHead">CART</h1>
+        <div id="addressTing">
+        </div>
+    </div>
+    
+    <div id="footer"><span id="footer">&#169 Pisa's Pizza Palace 2017, all rights reserved.<br>
+    By using this website you consent to Pisa's Pizza Palace sending a man to scream outside your house early every morning.</span></div>
+
+
+<script>
+    
+    $(document).ready(function(){
+            var addCheck = getCookie("gotAdd");
+            if (addCheck !== "true"){
+                loadInput();
+            }
+            else{
+                loadAdd();
+            }
+            displayAdd();
+        });
+    
+    $("#submitAdd").click(getAddress);
+    $("#dispAdd").click(displayAdd);
+    $("#clearInfo").click(removeInfo);
+    $("#changeCart").click(updateCart);
+    $("#checkoutLink").click(function(){
+            location.href = "pisaCheckout.html";
+            
+        });
+
+        
+    function getAddress () {
+			setCookie ("address", $("#addBox").val(), 365);
+            setCookie ("state", $("#stateBox").val(), 365);
+            setCookie ("zip", $("#zipBox").val(), 365);
+            setCookie ("gotAdd", true, 365);
+            loadAdd();
+            
+	}
+    
+    function loadInput(){
+        $("#addSec").html("");
+        $("#addSec").append('<form id="addForm">');
+        $("#addSec").append('Address <br>');
+        $("#addSec").append('<input type="text" id="addBox"><br>');
+        $("#addSec").append('State <br>');
+        $("#addSec").append('<input type="text" id="stateBox"><br>');
+        $("#addSec").append('ZIP Code <br>');
+        $("#addSec").append('<input type="text" id="zipBox"><br><br>');
+        $("#addSec").append('<input type="button" id="submitAdd" value="Submit" class="orderNow">');
+        $("#addSec").append('</form>');
+        $("#submitAdd").click(getAddress);
+    }
+    
+    function loadAdd(){
+        var addressStr = getCookie("address");
+        var stateStr = getCookie("state");
+        var zipStr = getCookie("zip");
+        $("#addSec").html("");
+        $("#addSec").append('Currently saved address:<br>');
+        $("#addSec").append(addressStr + '<br>');
+        $("#addSec").append(stateStr + ', ' + zipStr + '<br><br>');
+        $("#addSec").append('<input type="button" id="changeAdd" value="Change Address" class="orderNow">');
+        $("#changeAdd").click(loadInput);
+        
+        
+        
+    }
+    
+	function displayAdd () {
+		$("#addressTing").html("");
+        var totalPrice = 0;
+        var numCheese = getCookie("cheeseP");
+        var numPep = getCookie("pepP");
+        var numFried = getCookie("friedP");
+        var numInvert = getCookie("invertedP");
+        var numWater = getCookie("waterP");
+        var numBall = getCookie("ballP");
+		var numGas = getCookie("gasP");
+        var emptyCheck = getCookie("emptyCart");
+        if (emptyCheck === "false"){
+            if (numCheese !== "0" && numCheese !== "undefined"){
+                $("#addressTing").append(numCheese + " x Cheese Pizza - $" + parseFloat(parseInt(numCheese) * 15.99).toFixed(2) + "<br>");
+                totalPrice += (parseInt(numCheese) * 15.99);     
+            }
+            if (numPep !== "0" && numPep !== "undefined"){
+                $("#addressTing").append(numPep + " x Pepperoni Pizza - $" + parseFloat(parseInt(numPep) * 17.49).toFixed(2) + "<br>");
+                totalPrice += (parseInt(numPep) * 17.49);
+            }
+            if (numFried !== "0" && numFried !== "undefined"){
+                $("#addressTing").append(numFried + " x Deep-Fried Pizza - $" + parseFloat(parseInt(numFried) * 22.99).toFixed(2) + "<br>");
+                totalPrice += (parseInt(numFried) * 22.99);
+            }
+            if (numInvert !== "0" && numInvert !== "undefined"){
+                $("#addressTing").append(numInvert + " x Inverted Pizza - $" + parseFloat(parseInt(numInvert) * 19.29).toFixed(2) + "<br>");
+                totalPrice += (parseInt(numInvert) * 19.29);
+            }
+            if (numWater !== "0" && numWater !== "undefined"){
+                $("#addressTing").append(numWater + " x Water Pizza - $" + parseFloat(parseInt(numWater) * 12.49).toFixed(2) + "<br>");
+                totalPrice += (parseInt(numWater) * 12.49);
+            }
+            if (numBall !== "0" && numBall !== "undefined"){
+                $("#addressTing").append(numBall + " x Pizzaball - $" + parseFloat(parseInt(numBall) * 32.99).toFixed(2) + "<br>");
+                totalPrice += (parseInt(numBall) * 32.99);
+            }
+            if (numGas !== "0" && numGas !== "undefined"){
+                $("#addressTing").append(numGas + " x Gasoline-Soaked Pizzas - $" + parseFloat(parseInt(numGas) * 8.99).toFixed(2) + "<br>");
+                totalPrice += (parseInt(numGas) * 8.99);
+            }
+            $("#addressTing").append("<br>Total - $" + parseFloat(totalPrice).toFixed(2) + "<br><br>");
+            $("#addressTing").append('<input type="button" id="placeOrder" value="Place Order" class="orderNow">');
+            $("#placeOrder").click(function(){
+                location.href = "confirmed.html";
+            });
+        }
+        else{
+            $("#addressTing").append("You have no items in your cart.");
+		}
+    }
+	function removeInfo() {
+        delCookie("address");
+        delCookie("visited");
+        delCookie("state");
+        delCookie("zip");
+        delCookie("cheeseP");
+        delCookie("pepP");
+        delCookie("friedP");
+        delCookie("invertedP");
+        delCookie("waterP");
+        delCookie("ballP");
+		delCookie("gasP");
+        
+    }
+    
+    function updateCart() {
+        setCookie ("emptyCart", true, 365);
+        setCookie ("cheeseP", $("#cheeseNum").val(), 365);
+        setCookie ("pepP", $("#pepNum").val(), 365);
+        setCookie ("friedP", $("#friedNum").val(), 365);
+        setCookie ("invertedP", $("#invertedNum").val(), 365);
+        setCookie ("waterP", $("#waterNum").val(), 365);
+        setCookie ("ballP", $("#ballNum").val(), 365);
+		setCookie ("gasP", $("#gasNum").val(), 365);
+        if ($("#cheeseNum").val() !== "0"){
+            setCookie ("emptyCart", false, 365);
+        }
+        if ($("#pepNum").val() !== "0"){
+            setCookie ("emptyCart", false, 365);
+        }
+        if ($("#friedNum").val() !== "0"){
+            setCookie ("emptyCart", false, 365);
+        }
+        if ($("#invertedNum").val() !== "0"){
+            setCookie ("emptyCart", false, 365);
+        }
+        if ($("#waterNum").val() !== "0"){
+            setCookie ("emptyCart", false, 365);
+        }
+        if ($("#ballNum").val() !== "0"){
+            setCookie ("emptyCart", false, 365);
+        }
+        if ($("#gasNum").val() !== "0"){
+            setCookie ("emptyCart", false, 365);
+        }
+    }
+
+	function setCookie (name, value, numDays) {
+	    var date = new Date();
+	    // getTime() gets today's date in milliseconds as of 01/01/1970
+	    date.setTime (date.getTime() + (1000 * 60 * 60 * 24 * numDays));
+	    //                              milli  sec  min  hr   days
+	    // converted to total milliseconds to add to today
+	    var expires = "expires=" + date.toUTCString();
+	    document.cookie = name + "=" + value + ";" + expires + ";path=/";
+	}
+
+	function getCookie (name) {
+	// return value of cookie with specified name
+	    var searchName = name + "=";				
+	    var decodedCookie = decodeURIComponent (document.cookie);	
+	    var carray = decodedCookie.split(';');			
+	    var i, oneCookie;
+
+	    for (i = 0; i < carray.length; i++) {		
+                oneCookie = carray[i];				
+	 	while (oneCookie.charAt(0) == ' ') {		
+		    oneCookie = oneCookie.substring(1);
+		}
+		if (oneCookie.indexOf(searchName) === 0) {
+		    return oneCookie.substring (searchName.length, oneCookie.length);
+		}
+	    }
+	    return "";   // fail
+	}
+
+	function delCookie (name) {
+	    // delete a cookie with given name
+	    // either of these works
+	    // document.cookie = name + "=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/";
+	    document.cookie = name + "=; expires=; path=/";
+	}
+</script>
+
+</body>
+</html>
+</body>
+</html>

@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>Pisa's Pizza Place</title>
+    <style>
+    @media screen and (min-width: 1000px) {
+        body {
+            background-color: maroon;
+            padding: 0;
+            margin: 0;
+            height: 200vh;
+        }
+        div#menu {
+            position: fixed;
+            z-index: 2;
+            left: 0px;
+            top: 0px;
+            width: 100%;
+            background-color: #d85454;
+            height: 10vh;
+            text-align: center;
+            box-shadow: 0px 0px 10px #5e5e5e;
+        }
+        table#menu td {
+            display: inline;
+            color: white;
+            font-family: sans-serif;
+            font-size: 3vh;
+            margin-left: 3vw;
+            margin-right: 3vw;
+            padding: 2vh;
+            transition: 0.7s;
+            border-radius: 10px;
+        }
+        table#menu td:hover {
+            cursor: pointer;
+            background-color: #ba3232;
+            color: #ffe177;
+        }
+        table#menu {
+            margin: auto;
+            margin-top: 3vh;
+        }
+        img#logo {
+            height: 9vh;
+            position: absolute;
+            left: 20px;
+            top: 5px;
+            transition: 0.5s;
+            transform: rotate(-45deg);
+        }
+        img#logo:hover {
+            cursor: pointer;
+            transition: 0.5s;
+            transform: rotate(360deg);
+        }
+        img#cart {
+            height: 4vh;
+            position: absolute;
+            right: 50px;
+            top: 2vh;
+            border-radius: 10px;
+            padding: 1vh;
+            transition: 0.5s;
+        }
+        img#cart:hover {
+            background-color: #ffe177;
+            transition: 0.8s;
+            cursor: pointer;   
+        }
+        div#content {
+            width: 90vw;
+            text-align: center;
+            margin: auto;
+        }
+        h1#deals {
+            color: white;
+            font-family: sans-serif;
+            font-size: 8vh;
+            margin-top: 5vh;
+        }
+        div#innerContent {
+            width: 60vw;
+            margin: auto;
+        }
+        img#todaySpecial {
+            height: 50vh;
+            z-index: 1;
+            top: 40vh;
+            left: 30vw;
+        }
+        img#todaySpecial:hover {
+            cursor: pointer;
+        }
+        div#welcome {
+            color: #d85454;
+            font-family: sans-serif;
+            padding-top: 1.5vh;
+            margin-top: 10vh;
+            height: 7vh;
+            font-size: 5vh;
+            background-color: white;
+            text-align: center;
+            width: 100%;
+        }
+        button#buyNow {
+            background-color: maroon;
+            color: white;
+            border-radius: 10px;
+            padding: 2vh;
+            font-family: sans-serif;
+            font-size: 3vh;
+            transition: 0.3s;
+        }
+        button#buyNow:hover {
+            cursor: pointer;
+            background-color: white;
+            color: maroon;
+            transition: 0.3s;
+        }
+    }
+    @media screen and (max-width: 1000px) {
+        body {
+            background-color: maroon;
+            height: 200vh;
+        }
+        div#menu {
+            position: fixed;
+            left: 0px;
+            top: 0px;
+            width: 100vw;
+            background-color: #d85454;
+            height: 14vh;
+            
+        }
+        table#menu td {
+            display: inline;
+            color: white;
+            font-family: sans-serif;
+            font-size: 4vw;
+            padding: 2vh;
+            border-radius: 10px;
+            transition: 0.3s;
+            margin-right: 2vw;
+            margin-left: 2vw;
+        }
+        table#menu td:hover {
+            cursor: pointer;
+            background-color: #ba3232;
+            color: #ffe177;
+        }
+        table#menu {
+            margin: auto;
+            text-align: center;
+            margin-top: 5.3vh;
+
+        }
+        img#logo {
+            display: none;
+        }
+        img#cart {
+            display: none;
+        }
+        img#pizza {
+            position: absolute;
+            height: 50vh;
+            z-index: 1;
+            top: 40vh;
+            left: 30vw;
+            display: none;
+        }
+        img#coke {
+            position: absolute;
+            left: 26vw;
+            height: 20vh;
+            display: none;
+        }
+        img#chips {
+            position: absolute;
+            left: 43vw;
+            height: 20vh;
+            display: none;
+        }
+        div#content {
+            width: 90vw;
+            text-align: center;
+            margin: auto;
+            margin-top: 17vh;
+        }
+        h1#deals {
+            color: white;
+            font-family: sans-serif;
+            font-size: 8vh;
+        }
+    }
+    
+    </style>
+</head>
+
+<body>
+    <div id="menu">
+        <img id="logo" src="images/pisaLogo.png">
+        <table id="menu">
+            <tr>
+                <td><b>ORDER</b></td>
+                <td><b>LOCATIONS</b></td>
+                <td><b>MENU</b></td>
+            </tr>
+        </table>
+        <img id="cart" src="images/cart.png">
+    </div>
+    <div id="welcome"><b id="welcome">WELCOME BACK!</b></div>
+    <div id="content">
+        <h1 id="deals">TODAY'S SPECIAL</h1>
+        <div id="innerContent">
+            <img id="todaySpecial" src="images/todaySpecial.png">
+        </div>
+        <button id="buyNow"><b>BUY NOW</b></button>
+    </div>
+
+
+
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>Page Title</title>
+    <style>
+        form {
+            display: inline;
+        }
+    </style>
+</head>
+
+<body>
+    Input a number:
+    <form>
+        <input type="numeric" name="inputNum" id="inputNum">
+        <input type=button value="OK" id="doStuff">
+        <input type="reset">
+    </form>
+    <script>
+        document.getElementById("doStuff").addEventListener("click",thisIsAwful);
+        
+        function thisIsAwful(){
+            var x, y;
+            var myNum = document.getElementById("inputNum");
+            x = Number(myNum.value);
+            y = x + 10;
+            document.write(x + " + 10 = " + y);
+        }
+    </script>
+
+</body>
+</html>

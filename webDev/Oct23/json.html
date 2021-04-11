@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>JSON</title>
+</head>
+
+<body>
+    <form>
+        <input type="text" name="inData" id="inputName">
+        <input type="button" value="Submit" id="theButton">
+        <input type="text" name="outData" id="outputName">
+    </form>
+
+    <script>
+        var database= '{"class_list":"Comp 298","students":[{"name":"Jane","grade":98},{"name":"Joe","grade":85},{"name":"Nathan Hotdog","grade":"fucked"}]}';
+        
+        document.getElementById("theButton").addEventListener("click", showGrade);
+        
+        function showGrade () {
+            var theName = document.getElementById("inputName");
+            var databaseObj = JSON.parse (database);
+            
+            //alert (databaseObj.class_list);
+            //alert (databaseObj.students[0].name + " Grade is " + databaseObj.students[0].grade);
+            //alert (databaseObj.students[1].name + " Grade is " + databaseObj.students[1].grade);
+            var requestName = document.getElementById("inputName");
+            requestName = requestName.value;
+            //alert (requestName);
+            var i = 0;
+            while (i < databaseObj.students.length)
+            {
+                if (databaseObj.students[i].name == requestName)
+                {
+                    var gradeNumber = databaseObj.students[i].grade;
+                    outputName.value = ("Grade: " + gradeNumber);
+                }
+                i++;
+            }
+        }
+    </script>
+
+
+</body>
+</html>

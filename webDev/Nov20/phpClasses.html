@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+
+<!--
+   Michael Gousie
+   Web Development, Fall 2017
+   File: phpClasses.html
+
+   Client-server communication using JSON.
+-->
+
+<html>
+<head>
+   <title>Client-to-server-to-client JSON</title>
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+</head>
+<body>
+<form id="zipForm">
+   Input ZIP Code:
+   <input type="text" name="ZIPCODE" id="Zip">
+   <input type="submit" value="Submit" id="SubmitZip">
+</form>
+   
+<div id="json">
+</div>
+
+<script>
+   var notNeeded;
+   /*$.get("phpDateThing.php", notNeeded, function (response) {
+      var myObj = JSON.parse (response);
+      var newhtml = "";
+      if (myObj.firstname != "") {
+         newhtml += myObj.firstname + " " + myObj.lastname + "<br>";
+         newhtml += "Born on: " + myObj.birthdate.date;
+      } else {
+         newhtml += "gobbledigook";
+      }
+      $("#json").html(newhtml);
+   });*/
+   $("#SubmitZip").click(getResult);
+   
+   function getResult(){
+         $.get("weather.php", notNeeded, function (response) {
+         var weather = JSON.parse (response);
+         var newhtml = "";
+         //alert(weather.forecast[0].high);
+         for (var i = 0; i < 5; i++)
+         {
+            //alert(weather.forecast[i].high);
+            //alert(i);
+            newhtml += "Day " + i + " High: " + weather.forecast[i].high + " Low : " + weather.forecast[i].low + " Desc: " + weather.forecast[i].desc + "<br>";
+         }
+         alert("HELLO");
+         $("#json").html(newhtml);
+      });
+   }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>Validator Forms</title>
+</head>
+
+<body>
+    <form id="myForm" action="process" method="post">
+        Enter a number:
+        <input type="text" id="userInput" name="cardNumber">
+        <input type="submit" value="Submit">
+    </form>
+    
+    <script>
+        document.getElementById("myForm").addEventListener("submit", formChecker);
+        function formChecker (event) {
+            var data = document.getElementById("userInput");
+            data = Number (data.value);
+            if (data < 1 || data > 10) {
+                alert (data + " is not in range!");
+                event.preventDefault();
+            }
+        }
+    </script>
+
+
+
+</body>
+</html>

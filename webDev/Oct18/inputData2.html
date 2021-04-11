@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>Crangus</title>
+</head>
+
+<body>
+Please input a name:
+<input type="text" id="myData">
+
+<script>
+    document.addEventListener("DOMContentLoader", inputHandler);
+    
+    function inputHandler() {
+        var textBox;
+        textBox = document.getElementById("myData");
+        textBox.addEventListener ("keypress", clickHandler);
+    }
+    
+    function clickHandler (event) {
+        alert (event.charCode);
+        if (event.charCode === 0) {
+            var theData = event.target;
+            alert ("hey hey hey" + theData.value);
+        }
+    }
+    
+    
+</script>
+
+
+
+</body>
+</html>

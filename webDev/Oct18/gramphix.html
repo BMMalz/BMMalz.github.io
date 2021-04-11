@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<!--
+    Michael Gousie
+    Web Development, Fall 2017
+    doGraphics2.html
+    
+    Displaying data on a canvas, using quick-n-dirty button.
+-->
+<html>
+<head>
+    <title>Basic Graphics Two</title>
+
+</head>
+
+<body>
+<h2>More Graphics!</h2>
+
+<form>
+    <input type="numeric" name="inputNum" id="inputNum">
+    <input type=button value="Done" id="doStuff">
+</form>
+
+<br>
+<canvas id="myCanvas" width="1000" height="800" style="border:1px solid #000000"></canvas>
+
+<script type="text/javascript">
+
+// By doing everything in one canvas, there's no "changing documents";
+// that is, when you display answers, they're not on a different page
+    document.getElementById("doStuff").addEventListener("click", myFunction);
+    window.requestAnimationFrame(myFunction);
+
+    function myFunction (){
+        var myNum = document.getElementById("inputNum");
+        var x = myNum.value;
+        var c=document.getElementById("myCanvas");
+        var ctx=c.getContext("2d");
+        var w = 200;
+        
+        
+      
+        ctx.fillStyle = "#880000";
+        ctx.font="20px Times";
+        ctx.fillText("Value is: ", 10, 20);
+        ctx.fillText(x, 85, 20);
+        ctx.fillRect(40, 40, w, 100);
+        ctx.beginPath();
+        ctx.moveTo(200, 300);
+        ctx.lineTo(300, 300);
+        ctx.lineTo(400, 100);
+        ctx.lineTo(20, 50);
+        ctx.lineTo(40, 500);
+        ctx.lineTo(400, 30);
+        ctx.lineTo(0, 284);
+        ctx.lineTo(75, 60);
+        ctx.lineTo(30, 530);
+        ctx.lineTo(1000, 23);
+        ctx.lineTo(2, 553);
+        ctx.lineTo(430, 30);
+        ctx.closePath();
+        ctx.fillStyle = "Green";
+        ctx.fill();
+        ctx.strokeStyle = "Purple";
+        ctx.lineWidth = -1;
+        ctx.stroke();
+        
+        w += 10;
+        if (w > 3000)
+        {
+            window.requestAnimationFrame(myFunction);
+        }
+    }
+</script>
+
+</body>
+</html>

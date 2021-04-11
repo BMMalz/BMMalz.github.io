@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<!--
+    Michael Gousie
+    Web Development, Fall 2017
+    File: layout2.html
+-->
+
+<html>
+<head>
+    <title>Layout 2</title>
+    
+     <style>
+        body {
+            width: 1000px; 
+        }
+        div {
+            background-color: #EEEEFF;
+            border: 3px solid #333333;
+            height: 300px;
+        }
+        p.relative {
+            position: relative;
+            left: 50px;         
+        }
+        h2 {
+            background-color: #bbbbbb;
+        }
+        h2.fixed {
+            background-color: #bbbbbb;
+            position: fixed;
+            top: 100px;
+            left: 200px;
+        }
+        
+        p.float {
+            background-color: #ccccff;
+            width: 200px;
+            margin: 10px;
+            padding: 5px;
+            float: left;
+        }
+     </style>
+</head>
+
+<body>
+<h2>This is in normal flow</h2>
+
+<p>The boxes go all the way to the right; new things either go to right (if inline) or below (if block).
+<img src="images/gum.gif" width="100">Weird picture...</p>  See what happens when you change browser size.
+
+<p class="relative">Here is some text that's long enough to do something when browser size is changed.</p>
+
+<p>And more text, back to same position.</p>
+
+<h2 class="fixed">This paragraph will be here no matter what.</h2>
+
+<p class="float">Floating elements are fun to deal with.</p>
+
+<div>
+
+<p class="float">Another floating element.  See what fun?  These are what you should be
+using in your second project.  I hope you are looking at examples in the textbook!</p>
+
+<p class="float">Yet a third floating element.  We now seem to have made 3 columns!</p>
+
+<p class="float">A fourth column, as long as the window is wide enough!</p>
+</div>
+<p>This is probably not where you want it!  You can use fixed width or liquid layouts for your projects; see many more examples in the book.</p>
+
+</body>
+</html>

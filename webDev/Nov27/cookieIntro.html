@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>Yummy Crunkies!</title>
+</head>
+
+<body>
+
+<script>
+    function setCookie (name, value, numDays){
+        var date = new Date();
+        date.setTime (date.getTime() + (1000 * 60 * 60 * 24 * numDays));
+        var expires = "expires=" + date.toUTCString();
+        document.cookie = name + "=" + value + ";" + expires + ";path=/";
+    }
+    function getCookie (name) {
+        var searchName = name + "=";
+        var decodedCookie = decodeURIComponent (document.cookie);
+        var carray = decodedCookie.split(';');
+        var i, oneCookie;
+        
+        for (i = 0; i < carray.length; i++){
+            oneCookie = carray[i];
+            while (oneCookie.charAt(0) == ' ') {
+                oneCookie = oneCookie.substring(1);
+            }
+            if (oneCookie.indexOf(searchName) == 0) {
+                return oneCookie.substring (searchName.length, oneCookie.length);
+            }
+        }
+        return "";
+    }
+    function delCookie (name) {
+        document.cookie = name+"=; expires=Thu, 01 Jan 1970 00:00:00; path=/";
+    }
+    var number;
+    number = getCookie ("visits");
+    if (number === "") {
+        document.write("Hi, Welcome to my page!<br>");
+        number = 1;
+        setCookie ("visits", number, 365);
+    } else {
+        delCookie ("visits");
+        document.write ("You been to this page like " + number + " times boy <br>");
+        number++;
+        setCookie ("visits", number, 365);
+    }
+    
+</script>
+
+
+</body>
+</html>

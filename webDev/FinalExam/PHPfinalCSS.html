@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+
+<!-- phpFinal1.html -->
+
+<html>
+<head>
+   <title>Final Exam</title>
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+   <style>
+      h2{
+         padding: 0px;
+         margin-bottom: 0px;
+      }
+      table.theTable{
+         margin-top: 0px;
+         border-spacing: 10px;
+      }
+   </style>
+</head>
+<body>
+<div id="stuff">
+</div>
+
+<script>
+   var notNeeded;
+   var newhtml = '<h2>My Books</h2> <table class="theTable"> <tr> <td><b>Title</b></td> <td><b>Author</b></td></tr>';
+   $.get("PHP/wackyBooks.php", notNeeded, function (response) {
+      var myObj = JSON.parse (response);
+      if (myObj.books != "") {
+         for (i = 0; i < myObj.books.length; i++) 
+             newhtml += "<tr> <td> <i>" + myObj.books[i].title + "</i> </td><td> " + myObj.books[i].author + "</td> </tr> <br>";
+      } else {
+         newhtml += "No books found<br>";
+      }
+      newhtml +="</table>";
+      $("#stuff").html(newhtml);
+   });
+</script>
+
+</body>
+</html>

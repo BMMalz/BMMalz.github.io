@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>Exam 2.2</title>
+</head>
+
+<body>
+    <form>
+        Type of sweet:<input type="text" name="inData" id="inputName">
+        <input type="button" value="Submit" id="theButton">
+        Flavors:<input type="text" name="outData" id="outputName">
+    </form>
+
+    <script>
+        var database= '{"sweets":[{ "name": "oreo","type": "cookie","flavors": ["chocolate", "vanilla"],"favorite": false,"created": 1912},{ "name": "snickers","type": "candy bar","flavors": ["chocolate", "peanuts", "caramel", "nougat"],"favorite": true, "created": 1930},{"name": "malt","type": "frozen dairy","flavors": ["vanilla", "chocolate", "strawberry"],"favorite": false,"created": 1922 }]}';
+        document.getElementById("theButton").addEventListener("click", showSweet);
+        
+        function showSweet () {
+            var databaseObj = JSON.parse (database);
+            var requestName = document.getElementById("inputName");
+            requestName = requestName.value;
+            var i = 0;
+            var found = false;
+            while (i < databaseObj.sweets.length)
+            {
+                if (databaseObj.sweets[i].name == requestName)
+                {
+                    var flavorText = databaseObj.sweets[i].flavors;
+                    outputName.value = (flavorText);
+                    found = true;
+                }
+                i++;
+            }
+            if (found === false)
+            {
+                alert("The sweet you entered was not found!");
+            }
+        }
+    </script>
+
+
+</body>
+</html>

@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>Pisa's Pizza Palace - Order</title>
+    
+    <script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <style>
+        @media screen and (min-width: 1000px) {
+        body {
+            background-color: maroon;
+            padding: 0;
+            margin: 0;
+        }
+        div#menu {
+            position: fixed;
+            z-index: 2;
+            left: 0px;
+            top: 0px;
+            width: 100%;
+            background-color: #d85454;
+            height: 10vh;
+            text-align: center;
+            box-shadow: 0px 0px 10px #5e5e5e;
+        }
+        table#menu td {
+            display: inline;
+            color: white;
+            font-family: sans-serif;
+            font-size: 3vh;
+            margin-left: 3vw;
+            margin-right: 3vw;
+            padding: 2vh;
+            transition: 0.7s;
+            border-radius: 10px;
+        }
+        table#menu td:hover {
+            cursor: pointer;
+            background-color: #ba3232;
+            color: #ffe177;
+        }
+        table#menu {
+            margin: auto;
+            margin-top: 3vh;
+        }
+        img#logo {
+            height: 9vh;
+            position: absolute;
+            left: 20px;
+            top: 5px;
+            transition: 0.5s;
+            transform: rotate(-45deg);
+        }
+        img#logo:hover {
+            cursor: pointer;
+            transition: 0.5s;
+            transform: rotate(360deg);
+        }
+        img#cart {
+            height: 4vh;
+            position: absolute;
+            right: 50px;
+            top: 2vh;
+            border-radius: 10px;
+            padding: 1vh;
+            transition: 0.5s;
+        }
+        img#cart:hover {
+            background-color: #ffe177;
+            transition: 0.8s;
+            cursor: pointer;   
+        }
+        div#content {
+            width: 90vw;
+            text-align: center;
+            margin: auto;
+        }
+        h1#deals {
+            color: white;
+            font-family: sans-serif;
+            font-size: 8vh;
+            margin-top: 5vh;
+        }
+        div#innerContent {
+            width: 60vw;
+            margin: auto;
+        }
+        img#todaySpecial {
+            height: 50vh;
+            z-index: 1;
+            top: 40vh;
+            left: 30vw;
+        }
+        img#todaySpecial:hover {
+            cursor: pointer;
+        }
+        div#welcome {
+            color: #d85454;
+            font-family: sans-serif;
+            padding-top: 1.5vh;
+            margin-top: 10vh;
+            height: 7vh;
+            font-size: 5vh;
+            background-color: white;
+            text-align: center;
+            width: 100%;
+        }
+        button#buyNow {
+            background-color: maroon;
+            color: white;
+            border-radius: 10px;
+            padding: 2vh;
+            font-family: sans-serif;
+            font-size: 3vh;
+            transition: 0.3s;
+        }
+        button#buyNow:hover {
+            cursor: pointer;
+            background-color: white;
+            color: maroon;
+            transition: 0.3s;
+        }
+        button.orderNow {
+            background-color: maroon;
+            color: white;
+            border-radius: 10px;
+            padding: 2vh;
+            font-family: sans-serif;
+            font-size: 3vh;
+            transition: 0.3s;
+        }
+        button.orderNow:hover {
+            cursor: pointer;
+            background-color: white;
+            color: maroon;
+            transition: 0.3s;
+        }
+        div#footer {
+            margin-top: 10vh;
+            background-color: #474747;
+            padding-top: 6vh;
+            padding-bottom: 3vh;
+            height: 8vh;
+            min-height: 50px;
+            width: 100%;
+            color: white;
+            text-align: center;
+            font-family: sans-serif;
+        }
+        table#menuTable{
+            margin: auto;
+            text-align: center;
+            border-spacing: 12px;
+        }
+        td#menuCell{
+            font-family: verdana;
+            font-size: 15px;
+            border-radius: 30px;
+            width: 300px;
+
+            display: inline-block;
+            background-color: white;
+            padding: 20px;
+            padding-top: 5px;
+            text-align: center;
+            margin: 50px;
+            position: relative;
+        }
+        span#price{
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            font-size: 3.5vh;
+            color: green;
+            padding: 5px;
+        }
+        div#menuTitle{
+            font-size: 20px;
+            color: #d85454;
+            padding: 10px;
+        }
+        img#pizzaImage:hover {
+            transform: rotate(1000deg);
+            transition: 10s;
+        }
+        img#pizzaImage {
+            transform: rotate(0deg);
+            transition: 3s;
+        }
+        div#description {
+            padding-top: 2vh;
+            padding-bottom: 2vh;
+        }
+    }
+    @media screen and (max-width: 1000px) {
+        body {
+            background-color: maroon;
+            width: 100%;
+            margin: 0;
+            padding: 0;
+        }
+        div#menu {
+            position: fixed;
+            z-index: 2;
+            left: 0px;
+            top: 0px;
+            width: 100vw;
+            background-color: #d85454;
+            padding-top: 15px;
+            padding-bottom: 15px;
+            box-shadow: 0px 0px 10px #5e5e5e;
+        }
+        table#menu td {
+            display: inline;
+            color: white;
+            font-family: sans-serif;
+            font-size: 15pt;
+            
+            border-radius: 10px;
+            transition: 0.3s;
+            margin-right: 4vw;
+            margin-left: 4vw;
+        }
+        table#menu td:hover {
+            cursor: pointer;
+            background-color: #ba3232;
+            color: #ffe177;
+        }
+        table#menu {
+            margin: auto;
+            text-align: center;
+        }
+        img#logo {
+            display: none;
+        }
+        img#cart {
+            display: none;
+        }
+        div#content {
+            width: 90vw;
+            text-align: center;
+            margin: auto;
+            margin-top: 3vh;
+        }
+        h1#deals {
+            color: white;
+            font-family: sans-serif;
+            font-size: 8vh;
+        }
+        div#innerContent {
+            width: 90vw;
+            margin: auto;
+            margin-top: 0;
+        }
+        img#todaySpecial {
+            height: 30vh;
+            z-index: 1;
+        }
+        img#todaySpecial:hover {
+            cursor: pointer;
+        }
+        div#welcome {
+            color: #d85454;
+            font-family: sans-serif;
+            padding-top: 1.5vh;
+            margin-top: 55px;
+            height: 7vh;
+            font-size: 5vh;
+            background-color: white;
+            text-align: center;
+            width: 100%;
+        }
+        button#buyNow {
+            background-color: maroon;
+            margin-top: 3vh;
+            color: white;
+            border: 2px solid white;
+            border-radius: 10px;
+            padding: 2vh;
+            font-family: sans-serif;
+            font-size: 3vh;
+            transition: 0.3s;
+        }
+        button#buyNow:hover {
+            cursor: pointer;
+            background-color: white;
+            color: maroon;
+            transition: 0.3s;
+        }
+        button.orderNow {
+            background-color: maroon;
+            color: white;
+            border-radius: 10px;
+            padding: 2vh;
+            font-family: sans-serif;
+            font-size: 3vh;
+            transition: 0.3s;
+        }
+        button.orderNow:hover {
+            cursor: pointer;
+            background-color: white;
+            color: maroon;
+            transition: 0.3s;
+        }
+        div#footer {
+            margin-top: 10vh;
+            background-color: #474747;
+            padding-top: 4vh;
+            padding-bottom: 2vh;
+            min-height: 70px;
+            height: 8vh;
+            width: 100%;
+            color: white;
+            font-size: 10pt;
+            
+            text-align: center;
+            font-family: sans-serif;
+        }
+        table#menuTable{
+            margin: auto;
+            text-align: center;
+            border-spacing: 2vw;
+        }
+        td#menuCell{
+            font-family: verdana;
+            font-size: 13pt;
+            border-radius: 30px;
+            max-width: 300px;
+            height: 520px;
+            width: 80vw;
+            display: inline-block;
+            background-color: white;
+            padding: 20px;
+            margin-right: 2vw;
+            margin-left: 2vw;
+            text-align: center;
+            margin-top: 2vh;
+            margin-bottom: 2vh;
+            position: relative;
+        }
+        span#price{
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            font-size: 17pt;
+            color: green;
+            padding: 5px;
+        }
+        
+        div#menuTitle{
+            font-size: 20px;
+            color: #d85454;
+            padding-bottom: 2vh;
+        }
+        div#description {
+            padding-top: 2vh;
+            padding-bottom: 2vh;
+        }
+        img.pizzaOrder {
+            width: 100%;
+            height: auto;
+        }
+    }
+    @media screen and (max-width: 500px) {
+        td#menuCell{
+            margin-left: 0;
+            margin-right: 0;
+        }
+        table#menu td {
+            font-size: 10pt;   
+        }
+        div#menu {
+            padding-top: 10px;
+            padding-bottom: 10px;
+        }
+        div#welcome {
+            margin-top: 40px;
+        }
+    }
+    </style>
+</head>
+
+<body>
+    <div id="menu">
+        <a href="index.html"><img id="logo" src="images/pisaLogo.png"></a>
+        <table id="menu">
+            <tr>
+                <td><a href="index.html" style="text-decoration: none; color: inherit"><b>HOME</b></a></td>
+                <td><a href="pisaOrder.html" style="text-decoration: none; color: inherit"><b>ORDER</b></a></td>
+                <td><a href="pisaCheckout.html" style="text-decoration: none; color: inherit"><b>CHECKOUT</b></a></td>
+            </tr>
+        </table>
+        <a href="pisaCheckout.html"><img id="cart" src="images/cart.png"></a>
+    </div>
+    <div id="welcome"><b id="welcome">ORDER</b></div>
+    <table id="menuTable">
+        <td id="menuCell"><span id="cellContent"><div id="menuTitle">CHEESE PIZZA</div><img id="pizzaImage" class="pizzaOrder" src="images/cheesePizza.png" width="300" height="300"><br>
+        Quantity: <select id="cheeseNum">
+        <option value="0" selected="selected">0</option>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+        <option value="7">7</option>
+        <option value="8">8</option>
+        <option value="9">9</option>
+        <option value="10">10</option>
+        </select><br>
+        <div id="description">Our cheese pizza is delicious. We suspect. Nobody has actually attempted to eat it on account of the fact it appears to move on its own.</div><br>
+        <span id="price">$15.99</span></span>
+        </td>
+        <td id="menuCell"><span id="cellContent"><div id="menuTitle">PEPPERONI PIZZA</div><img id="pizzaImage" class="pizzaOrder" src="images/pepPizza.png" width="300" height="300"><br>
+        Quantity: <select id="pepNum">
+        <option value="0" selected="selected">0</option>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+        <option value="7">7</option>
+        <option value="8">8</option>
+        <option value="9">9</option>
+        <option value="10">10</option>
+        </select><br>
+        <div id="description">Our pepperoni pizza is a new twist on a classic. That twist being that the pepperoni is made of mysterious meat of unknown origin.</div><br>
+        <span id="price">$17.49</span></span>
+        </td>
+        <td id="menuCell"><span id="cellContent"><div id="menuTitle">DEEP-FRIED PIZZA</div><img class="pizzaOrder" src="images/deepFriedPizza.jpg" width="300" height="300"><br>
+        Quantity: <select id="friedNum">
+        <option value="0" selected="selected">0</option>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+        <option value="7">7</option>
+        <option value="8">8</option>
+        <option value="9">9</option>
+        <option value="10">10</option>
+        </select><br>
+        <div id="description">Some people told us it was a digusting idea. So we did it. Deep-fried pizza was a mistake.</div><br><br>
+        <span id="price">$22.99</span></span>
+        </span>
+        </td>
+        <td id="menuCell"><span id="cellContent"><div id="menuTitle">INVERTED PIZZA</div><img class="pizzaOrder" src="images/invertedPizza.jpg" width="300" height="300"><br>
+        Quantity: <select id="invertedNum">
+        <option value="0" selected="selected">0</option>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+        <option value="7">7</option>
+        <option value="8">8</option>
+        <option value="9">9</option>
+        <option value="10">10</option>
+        </select><br>
+        <div id="description">We accidentally made a pizza wrong. The cheese is on the outside and the crust is on the inside. Whoops.</div><br><br>
+        <span id="price">$19.29</span></span>
+        </td>
+        <td id="menuCell"><span id="cellContent"><div id="menuTitle">WATER PIZZA</div><img class="pizzaOrder" src="images/waterPizza.jpg" width="300" height="300"><br>
+        Quantity: <select id="waterNum">
+        <option value="0" selected="selected">0</option>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+        <option value="7">7</option>
+        <option value="8">8</option>
+        <option value="9">9</option>
+        <option value="10">10</option>
+        </select><br>
+        <div id="description">It's pizza that's shaped like a glass of water. Has the consistency and flavor of water. It's pizza.</div><br><br>
+        <span id="price">$12.49</span></span>
+        </td>
+        <td id="menuCell"><span id="cellContent"><div id="menuTitle">PIZZABALL</div><img class="pizzaOrder" src="images/pizzaball.png" width="300" height="300"><br>
+        Quantity: <select id="ballNum">
+        <option value="0" selected="selected">0</option>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+        <option value="7">7</option>
+        <option value="8">8</option>
+        <option value="9">9</option>
+        <option value="10">10</option>
+        </select><br>
+        <div id="description">We took some pizzas. Then we squished them all together until it looked like a ball. Now it's a pizzaball.</div><br><br>
+        <span id="price">$32.99</span></span>
+        </td>
+        <td id="menuCell" class="gasolina"><span id="cellContent"><div id="menuTitle">GASOLINE-SOAKED PIZZA</div><img class="pizzaOrder" src="images/todaySpecial.png" width="300" height="300"><br>
+        Quantity: <select id="gasNum">
+        <option value="0" selected="selected">0</option>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+        <option value="7">7</option>
+        <option value="8">8</option>
+        <option value="9">9</option>
+        <option value="10">10</option>
+        </select><br>
+        <div id="description">Today only, get yourself some gasoline-soaked pizza. We're desperate here. Please, just buy something from us.</div><br><br>
+        <span id="price">$8.99</span></span></td>
+        <tr>
+            <td><button class="orderNow" id="changeCart"><b>Update Cart</b></button></td>
+        </tr>
+        <tr>
+            <td><button class="orderNow" id="checkoutLink"><b>Checkout</b></button></td>
+        </tr>
+        
+    </table>
+    <div id="footer"><span id="footer">&#169 Pisa's Pizza Palace 2017, all rights reserved.<br>
+    By using this website you consent to Pisa's Pizza Palace sending a man to scream outside your house early every morning.</span></div>
+
+
+<script>
+    $("#dispAdd").click(displayAdd);
+    $("#clearInfo").click(removeInfo);
+    $("#changeCart").click(updateCart);
+    $("#checkoutLink").click(function(){
+            location.href = "pisaCheckout.html";
+            
+        });
+
+    
+	function displayAdd () {
+        //alert("e");
+		$("#addressTing").html("");
+        var numCheese = getCookie("cheeseP");
+        var numPep = getCookie("pepP");
+        var numFried = getCookie("friedP");
+        var numInvert = getCookie("invertedP");
+        var numWater = getCookie("waterP");
+        var numBall = getCookie("ballP");
+		var numGas = getCookie("gasP");
+        if (numCheese !== "0" && numCheese !== "undefined"){
+            $("#addressTing").append(numCheese + " Cheese Pizzas in cart - Price: $" + parseFloat(parseInt(numCheese) * 15.99).toFixed(2) + "<br>");
+            totalPrice += (parseInt(numCheese) * 15.99);     
+        }
+        if (numPep !== "0" && numPep !== "undefined"){
+            $("#addressTing").append(numPep + " Pepperoni Pizzas in cart - Price: $" + pariseFloat(parseInt(numPep) * 17.49).toFixed(2) + "<br>");
+            totalPrice += (parseInt(numPep) * 17.49);
+        }
+        if (numFried !== "0" && numFried !== "undefined"){
+            $("#addressTing").append(numFried + " Deep-Fried Pizzas in cart - Price: $" + parseFloat(parseInt(numFried) * 22.99).toFixed(2) + "<br>");
+            totalPrice += (parseInt(numFried) * 22.99);
+        }
+        if (numInvert !== "0" && numInvert !== "undefined"){
+            $("#addressTing").append(numInvert + " Inverted Pizzas in cart - Price: $" + parseFloat(parseInt(numInvert) * 19.29).toFixed(2) + "<br>");
+            totalPrice += (parseInt(numInvert) * 19.29);
+        }
+        if (numWater !== "0" && numWater !== "undefined"){
+            $("#addressTing").append(numWater + " Water Pizzas in cart - Price: $" + parseFloat(parseInt(numWater) * 12.49).toFixed(2) + "<br>");
+            totalPrice += (parseInt(numWater) * 12.49);
+        }
+        if (numBall !== "0" && numBall !== "undefined"){
+            $("#addressTing").append(numBall + " Pizzaballs in cart - Price: $" + parseFloat(parseInt(numBall) * 32.99).toFixed(2) + "<br>");
+            totalPrice += (parseInt(numBall) * 32.99);
+        }
+		if (numGas !== "0" && numGas !== "undefined"){
+            $("#addressTing").append(numGas + " Gasoline-Soaked Pizzas in cart - Price: $" + parseFloat(parseInt(numGas) * 8.99).toFixed(2) + "<br>");
+            totalPrice += (parseInt(numGas) * 8.99);
+        }
+        $("#addressTing").append("Your total price is like, $" + parseFloat(totalPrice).toFixed(2) + ", bro <br>");
+		}
+	function removeInfo() {
+        delCookie("address");
+        delCookie("visited");
+        delCookie("state");
+        delCookie("zip");
+        delCookie("cheeseP");
+        delCookie("pepP");
+        delCookie("friedP");
+        delCookie("invertedP");
+        delCookie("waterP");
+        delCookie("ballP");
+		delCookie("gasP");
+        
+    }
+    
+    function updateCart() {
+        setCookie ("emptyCart", true, 365);
+        setCookie ("cheeseP", $("#cheeseNum").val(), 365);
+        setCookie ("pepP", $("#pepNum").val(), 365);
+        setCookie ("friedP", $("#friedNum").val(), 365);
+        setCookie ("invertedP", $("#invertedNum").val(), 365);
+        setCookie ("waterP", $("#waterNum").val(), 365);
+        setCookie ("ballP", $("#ballNum").val(), 365);
+		setCookie ("gasP", $("#gasNum").val(), 365);
+        if ($("#cheeseNum").val() !== "0"){
+            setCookie ("emptyCart", false, 365);
+        }
+        if ($("#pepNum").val() !== "0"){
+            setCookie ("emptyCart", false, 365);
+        }
+        if ($("#friedNum").val() !== "0"){
+            setCookie ("emptyCart", false, 365);
+        }
+        if ($("#invertedNum").val() !== "0"){
+            setCookie ("emptyCart", false, 365);
+        }
+        if ($("#waterNum").val() !== "0"){
+            setCookie ("emptyCart", false, 365);
+        }
+        if ($("#ballNum").val() !== "0"){
+            setCookie ("emptyCart", false, 365);
+        }
+        if ($("#gasNum").val() !== "0"){
+            setCookie ("emptyCart", false, 365);
+        }
+    }
+
+	function setCookie (name, value, numDays) {
+	    var date = new Date();
+	    // getTime() gets today's date in milliseconds as of 01/01/1970
+	    date.setTime (date.getTime() + (1000 * 60 * 60 * 24 * numDays));
+	    //                              milli  sec  min  hr   days
+	    // converted to total milliseconds to add to today
+	    var expires = "expires=" + date.toUTCString();
+	    document.cookie = name + "=" + value + ";" + expires + ";path=/";
+	}
+
+	function getCookie (name) {
+	// return value of cookie with specified name
+	    var searchName = name + "=";				
+	    var decodedCookie = decodeURIComponent (document.cookie);	
+	    var carray = decodedCookie.split(';');			
+	    var i, oneCookie;
+
+	    for (i = 0; i < carray.length; i++) {		
+                oneCookie = carray[i];				
+	 	while (oneCookie.charAt(0) == ' ') {		
+		    oneCookie = oneCookie.substring(1);
+		}
+		if (oneCookie.indexOf(searchName) === 0) {
+		    return oneCookie.substring (searchName.length, oneCookie.length);
+		}
+	    }
+	    return "";   // fail
+	}
+
+	function delCookie (name) {
+	    // delete a cookie with given name
+	    // either of these works
+	    // document.cookie = name + "=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/";
+	    document.cookie = name + "=; expires=; path=/";
+	}
+</script>
+
+</body>
+</html>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<!--
+    Michael Gousie
+    Web Development, Fall 2017
+    File: animation.html
+-->
+
+<html>
+<head>
+    <title>Animation Fun</title>
+    <script>
+        speed = 100;
+        imgArray = new Array(7);
+        imgArray[0] = new Image();
+        imgArray[0].src = "images/1.jpg";
+        imgArray[1] = new Image();
+        imgArray[1].src = "images/2.jpg";
+        imgArray[2] = new Image();
+        imgArray[2].src = "images/3.jpg";
+        imgArray[3] = new Image();
+        imgArray[3].src = "images/4.png";
+        imgArray[4] = new Image();
+        imgArray[4].src = "images/5.jpg";
+        imgArray[5] = new Image();
+        imgArray[5].src = "images/6.jpg";
+        imgArray[6] = new Image();
+        imgArray[6].src = "images/duck.gif";
+        var i;
+        i = 0;
+        
+        function animate() {
+            if (i > 6)
+            {
+                i = 0;
+            }
+            else
+            {
+                document.fg.src = imgArray[i].src;
+                i++;
+                //setTimeout('animate()', 200);
+            }
+            
+        }
+    </script>
+</head>
+
+<body>
+    <img id="fg" src="images/duck.gif" height= 200>
+    <div></div>
+
+    <form>
+        <input type="button" value="Start" onClick="animate();">
+    </form>
+</body>
+</html>

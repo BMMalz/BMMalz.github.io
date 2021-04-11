@@ -1,0 +1,180 @@
+        body{
+            font-family: arial;
+        }
+        
+        body#fotoFanBod {
+            background-color: #303133;
+        }
+        table.linkBar{
+            table-layout: fixed;
+            background-color: #8920a3;
+            width: 100%;
+            border-radius: 2px;
+            border-spacing: 5px;
+            border-style: groove;
+            border-width: 3px;
+            border-color: #3e0f66;
+        }
+        table.linkBar td{
+            width: 50px;
+            background-color: #edb8f9;
+            border-radius: 2px;
+            font-size: 25px;
+            padding: 5px;
+            text-align: center;
+            border-style: double;
+            border-width: 2px;
+            transition: .5s;
+        }
+        table.linkBar td:hover{
+            background-color: #8b5b96;
+            color: #f4d1fc;
+            border-radius: 20px;
+        }
+        
+        table.linkBar a{
+            text-decoration: none;
+            color: #433c44;
+        }
+        table.linkBar td:hover a{
+            color: white;
+            }
+            
+        table.linkBar td:hover #fotoLink{
+            color: white;
+            }
+        #loginBox{
+            border: double black 2px;
+            border-radius: 10px;
+            background-color: #8920a3;
+            font-size: 20px;
+            color: white;
+            margin: 0 auto;
+            width: 300px;
+            padding: 5px;
+            padding-top: 15px;
+            padding-bottom: 15px;
+            text-align: center;
+        }
+        #fotoLink
+        {
+            color: #433c44;
+            cursor: pointer;
+        }
+        #fotoLink:hover
+        {
+            color: white;
+        }
+        #warningMessage{
+            visibility: hidden;
+            border: #7c061c 2px groove;
+            background-color: #f46161;
+            font-size: 20px;
+            padding: 10px;
+            width: 300px;
+            text-align: center;
+            margin: auto;
+            margin-top: 2px;
+            
+        }
+        span.loginWords{
+            font-size: 20px;
+            font-weight: 700;
+        }
+        div.logo{
+            text-align: center;
+            margin-top: 15px;
+        }
+        img#mainPhoto {
+            max-width: 100%;
+            height: 45vw;
+            margin-bottom: -4px;
+        }
+        img.small {
+            margin-left: 10px;
+            margin-bottom: 5px;
+            height: 5.1vw;
+            width: 5.1vw;
+            transition: .5s;
+        }
+        img.small:hover {
+            transform: scale(1.1,1.1);
+            cursor: pointer;
+        }    
+        form#searchBar {
+            margin-bottom: 20px;
+            margin-top: 30px;
+        }
+        span#incorrect {
+            color: white;
+            font-family: sans-serif;
+            margin-left: 10px;
+        }
+        div.container {
+            display: inline;
+            margin:0 auto;
+        }
+        
+        div#metaBox {
+            display: none;
+            position: absolute;
+            top: 93.8%;
+            width: 80.5%;
+            background-color: black;
+            color: white;
+            padding: 5px;
+            padding-left: 10px;
+        }
+        
+        img#leftArrow {
+            position: absolute;
+            z-index: 1;
+            left: 3vw;
+            top: 25vw;
+            transition: .3s;
+        }
+        img#rightArrow {
+            position: absolute;
+            z-index: 1;
+            top: 25vw;
+            right: 21vw;
+            transition: .3s;
+        }
+        img#leftArrow:hover {
+            transform: scale(1.2, 1.2);
+            cursor: pointer;
+        }
+        img#rightArrow:hover {
+            transform: scale(1.2, 1.2);
+            cursor: pointer;
+        }
+        div#slideShowDiv {
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            background-color: black;
+            z-index: 2;
+            display: none;
+            height: 100%;
+            width: 100%;
+            text-align: center;
+        }
+        #mainPhotoSlide {
+            margin-top: 1vw;
+            height: 50vw;
+            max-width: 100%;
+        }
+        img#x {
+            position: absolute;
+            z-index: 3;
+            top: 2vw;
+            right: 2vw;
+            height: 2vw;
+            width: 2vw;
+            display: none;
+            transition: .3s;
+        }
+        img#x:hover {
+            transform: scale(1.2, 1.2);
+            cursor: pointer;
+        }

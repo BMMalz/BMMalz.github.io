@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Page of Illusions - The Gradient Illusion</title>
+    <link rel="stylesheet" href="illusionStyle.css" title="Illusion Style">
+</head>
+
+<body>
+    <h1 class="mainHeader"><img src="images/transparentFace.png" alt="My face" width=75 height=75> Benjamin Malz - The Illusion Project</h1>
+    <table class="linkBar">
+        <tr><td><a href="http://cs.wheatoncollege.edu/~bmalz/index.html"><b>Home</b></a></td>
+        <td><a href="http://cs.wheatoncollege.edu/~bmalz/COMP298.html"><b>Project One</b></a></td>
+        <td><a href="http://cs.wheatoncollege.edu/~bmalz/yaleArt/yaleHome.html"><b>Project Two</b></a></td></tr>
+    </table>
+    <table class="subLinkBar">
+        <tr><td><a href="illusionMain.html"><b>Main Page</b></a></td>
+        <td><a href="gradientIllusion.html"><b>Gradient Illusion</b></a></td>
+        <td><a href="railroadIllusion.html"><b>Ponzo Illusion</b></a></td></tr>
+    </table>
+    <div class="pageContent">
+        <h2>The Gradient Illusion</h2>
+        <form id="nameForm">
+            <input type="text" value="Your name here" id="userName" name="nameReplaceBox">
+            <input type="submit" value="Change">
+        </form>
+        <blockquote>Once again, <span class="nameReplace">buddy</span>, feel free to put your name in that box up there so you can pretend this site
+        was made with <i>you</i> in mind and nobody else. <span class="nameReplace">Buddy</span> - this next illusion is possibly going to blow your mind.
+        See, the deal with this one is that there's a gradient. Now, <span class="nameReplace">buddy</span>, I'm assuming you've seen a gradient, so that isn't
+        what's gonna blow your mind. See, what might just blow poor little <span class="nameReplace">buddy</span>'s mind is the fact that there's a overlaying
+        the gradient bar. It looks like the bar is a gradient going in the opposite direction, right? Well, <span class="nameReplace">buddy</span>, you are very, very
+        wrong about that. In fact, that bar is one solid color. Don't believe me? <span class="nameReplace">Buddy</span>, I thought we had a special bond. I thought
+        you trusted me. But since you don't, just scroll down and look at that illusion. If you click the "Prove it" button, you'll see that it really is an illusion.
+        Then, you can hit the "Reset" button and see the gradient background again. Give it a try, <span class="nameReplace">buddy</span>.</blockquote>
+        <canvas id="gradientCanvas" height="800" width="800" style="background-image: url(images/gradient800px.jpg); border: 3px solid #5963b2; margin: auto; display: block;"></canvas>
+        <form style="margin: 5px auto; text-align: center;">
+            <input type="button" value="Prove it" id="solveButton">
+            <input type="button" value="Reset" id="resetButton">
+        </form>
+        <h2>Links</h2>
+        <table class="illusionLinks">
+            <tr><td><a href="illusionMain.html"><img class= "imgLink" src="images/zigzagdark.png" alt="Homepage" height=300 width=300> Main Page</a></td>
+            <td><a href="railroadIllusion.html"><img class="imgLink" src="images/ponzoIllusion.jpg" alt="The Ponzo illusion" height=300 width=300> Ponzo Illusion</a></td></tr>
+        </table>
+    </div>
+    
+    <p class="bottomNavigation" style="width: 275px"><b>Last updated:
+    <script>
+        document.write(document.lastModified);
+    </script></b>
+    </p>
+    <p class= "bottomNavigation" style="width: 300px;">
+         <a href="http://cs.wheatoncollege.edu/~bmalz/index.html"><b>Home</b></a> //
+        <a href="http://cs.wheatoncollege.edu/~bmalz/COMP298.html"><b>Project One</b></a> //
+        <a href="http://cs.wheatoncollege.edu/~bmalz/yaleArt/yaleHome.html"><b>Project Two</b></a> 
+    </p>
+    <p class="bottomNavigation" style="width: 400px;">
+         <a href="illusionMain.html"><b>Main Page</b></a> //
+        <a href="gradientIllusion.html"><b>Gradient Illusion</b></a> //
+        <a href="railroadIllusion.html"><b>Ponzo Illusion</b></a> 
+    </p>
+<script>
+    document.getElementById("solveButton").addEventListener("click", illusionSolver);
+    var c=document.getElementById("gradientCanvas");
+    var ctx=c.getContext("2d");
+    var opacityPercent = 0;
+    
+    function illusionSolver()
+    {
+        ctx.clearRect(0, 0, 10000, 10000);
+        ctx.fillStyle = "white";
+        ctx.globalAlpha = opacityPercent;
+        ctx.fillRect(0, 360, 67, 81);
+        ctx.fillRect(0, 441, 800, 359);
+        ctx.fillRect(752, 360, 49, 81);
+        ctx.fillRect(0, 0, 800, 360);
+        opacityPercent += 0.01;
+        if (opacityPercent < 1)
+        {
+            window.requestAnimationFrame(illusionSolver);
+        }
+        
+    }
+    document.getElementById("resetButton").addEventListener("click", clearSolution);
+    function clearSolution()
+    {
+        ctx.clearRect(0, 0, 10000, 10000);
+        ctx.fillStyle = "white";
+        ctx.globalAlpha = opacityPercent;
+        ctx.fillRect(0, 360, 67, 81);
+        ctx.fillRect(0, 441, 800, 359);
+        ctx.fillRect(752, 360, 49, 81);
+        ctx.fillRect(0, 0, 800, 360);
+        opacityPercent -= 0.02;
+        if (opacityPercent > 0)
+        {
+            window.requestAnimationFrame(clearSolution);
+        }
+        
+    }
+    
+    document.getElementById("nameForm").addEventListener("submit", nameReplace);
+        function nameReplace(event) {
+            var newName = document.getElementById("userName");
+            newName = newName.value;
+            var oldNames = document.getElementsByClassName("nameReplace");
+            for (var i = 0; i < oldNames.length; i++)
+            {
+                oldNames[i].innerHTML = newName;
+            }
+            event.preventDefault();
+        }
+</script>
+
+
+</body>
+
+</html>

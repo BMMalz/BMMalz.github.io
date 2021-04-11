@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>Exam 2</title>
+    <style>
+        #canvas {
+            border: 2px solid #000;
+        }
+    </style>
+</head>
+
+<body>
+    <h3>Color Fun</h3>
+   
+    <form>
+        <p>Click a button to toggle the color in each box</p>
+        <input id="redCheck" type="checkbox"><label id="redLabel">Red</label><br>
+        <input id="blueCheck" type="checkbox"><label id="blueLabel">Blue</label><br>
+        <input id="greenCheck" type="checkbox"><label id="greenLabel">Green</label><br>
+        <br>
+    </form>
+    
+    <div id="someText">
+    </div>
+
+    <canvas id="canvas" width="530" height="180"></canvas>
+    
+    <script>
+        var canvas = document.getElementById("canvas");
+        var context = canvas.getContext("2d");
+        context.rect(10, 25, 160, 130);
+        context.stroke();
+        context.rect(185, 25, 160, 130);
+        context.stroke();
+        context.rect(360, 25, 160, 130);
+        context.stroke();
+        document.getElementById("redCheck").addEventListener("change", redChange);
+        document.getElementById("blueCheck").addEventListener("change", blueChange);
+        document.getElementById("greenCheck").addEventListener("change", greenChange);
+        function redChange(){
+            if (this.checked){
+                document.getElementById("redLabel").style.color = "red";
+                context.fillStyle = "red";
+                context.fillRect(11, 26, 158, 128);
+            }
+            else {
+                document.getElementById("redLabel").style.color = "black";
+                context.clearRect(11, 26, 158, 128);
+            }
+        }
+        function blueChange(){
+            if (this.checked){
+                document.getElementById("blueLabel").style.color = "blue";
+                context.fillStyle = "blue";
+                context.fillRect(186, 26, 158, 128);
+            }
+            else {
+                document.getElementById("blueLabel").style.color = "black";
+                context.clearRect(186, 26, 158, 128);
+            }
+        }
+        function greenChange(){
+            if (this.checked){
+                document.getElementById("greenLabel").style.color = "green";
+                context.fillStyle = "green";
+                context.fillRect(361, 26, 158, 128);
+                var ajaxText = document.getElementById("someText");
+                var request = new XMLHttpRequest();
+                request.addEventListener("load", function() {
+                    ajaxText.innerHTML = request.response;
+                });
+                request.open("GET", "Exam23ajax.html");
+                request.send();
+            }
+            else {
+                document.getElementById("greenLabel").style.color = "black";
+                context.clearRect(361, 26, 158, 128);
+                document.getElementById("someText").innerHTML = "";
+            }
+        }
+        
+    </script>
+
+</body>
+</html>

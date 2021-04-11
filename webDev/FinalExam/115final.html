@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>Comp 115</title>
+	<style>
+	@media screen and (min-width: 1000px){
+		body{
+			margin: auto;
+			width: 80%;
+		}
+		#mainmenu{
+			text-align: center;
+		}
+		
+		#bottomstuff{
+			display: block;
+			text-align: center;
+		}
+	}
+	
+    @media screen and (min-width: 500px) and (max-width: 999px){
+		body{
+			font-size: 2vh;
+			margin: auto;
+		}
+		#mainmenu{
+			text-align: center;
+		}
+		#bottomstuff{
+			text-align: center;
+		}
+		
+	}
+		
+	</style>
+</head>
+
+<body>
+
+
+<div id="container">
+
+<!--
+<img src="webimages/superBowlLI.jpg" alt="Patriots Super Bowl Champs!">
+-->
+
+<div id="mainmenu">
+<h1>Michael B. Gousie - Comp 115</h1>
+
+
+	<a href="index.html">Home</a> |<a href="comp115.html">Comp 115</a> | <a href="comp298.html">Comp 298</a> | <a href="research.html">Research</a> |<a href="antiresearch.html">Anti-Research</a>
+</div>   <!-- end of #mainmenu -->
+
+<div id="contents" style="padding: 30px">
+
+<div class="box" style="width: 850px; height: 2000px">
+
+<h2>Comp 115 - Robots, Games, and Problem Solving (Fall 2017)</h2>
+
+<ul>
+<li>
+<a href="comp115/syllabus115.pdf">Syllabus.</a> 
+</li>
+<li>Lab Instructor: Dr. Judy Veranas</li>
+<li>Tutors: Arianna Alfiero, Tuesdays 4:30-6:30PM; Eammon Littler, Tuesdays 5:00-7:00PM</li>
+<li>Join the CS Theme House!  
+<a href="https://docs.google.com/a/wheatoncollege.edu/forms/d/e/1FAIpQLScpHnHJNyg_0nVOkV58tPPjMPIXlih_WJBLSn8i9YcQBuw8ZQ/viewform">Sign up!</a></li>
+<li><a href="http://www.sadtrombone.com/" target="_blank">Sad trombone</a></li>
+<br>
+    <li><a href="https://scratch.mit.edu/">Scratch</a> - a visual programming language from MIT</li>
+    <li><a href="https://www.codecademy.com/">Codecademy</a> - a web site where you can learn and 
+	<b>practice</b> Python coding.</li>
+    <li><a href="https://www.hackerrank.com">HackerRank</a> - another place to practice your Python skills. </li>
+    <li><a href="http://codingbat.com/python">CodingBat</a> - yet a third site to practice; note that
+these examples don't print the results (they "return" them instead) 
+and that many need at least IF statements. </li>
+<br>
+    <li><b>Python Wing IDE</b> for Windows, Mac OS X, and Linux:<br>
+
+      First install <a href="http://python.org/download/" target="_blank">Python 3.6</a>.
+      Then go to
+      <a href="http://wingware.com/downloads/wingide-101" target="_blank">Wingware IDE 101</a>.
+      Download the appropriate package for your computer/operating system.  This is the free
+      version of the IDE, and is the same version that is installed in the Wheaton lab.
+<br><br>
+<b>Note for Mac users: </b> - you may need to update Wing to use Python 3
+       (you only need to do this <b>once</b>):
+       <ol>
+          <li>Start Wing</li>
+          <li>Go to Edit->Configure Python.  You'll get a window that looks similar to <a href="comp115/python3.pdf">this</a>.</li>
+          <li>Change the Python Executable to <b>Custom</b> and type in: /usr/local/bin/python3</li>
+          <li>Near the bottom where it says "Initial Directory", choose <b>Use default</b></li>
+          <li>Restart the shell (or restart Wing)</li>
+        </ol>
+    </li>
+<br>
+    <li><b>Some Python resources:</b>
+
+    <ul>
+    <li><a href="http://www.python.org/">Python Language Homepage</a>
+    </li>
+
+    <li><a href="http://docs.python.org/py3k/tutorial/index.html">Python Language Tutorial</a>
+    </li>
+
+    <li><a href="http://docs.python.org/py3k/reference/">Python Language Reference</a>
+    </li>
+
+    <li><a href="https://docs.python.org/3/library/functions.html">Python Built-in Functions</a>
+    </li>
+
+
+    <li><a href="http://docs.python.org/release/3.0.1/whatsnew/3.0.html">What's New in Python 3.0</a> - if you're already familiar with Python 2.x.
+    </li>
+
+    <li><a href="http://www.python.org/dev/peps/pep-0008/">Style Guide for Python Code</a> - good techniques regarding indentation, comments, etc.
+    </li>
+
+    <li><a href="comp115/graphics.py">graphics.py</a> - graphics module for Python 3.x. </li>
+
+    <li><a href="https://docs.python.org/3.1/library/stdtypes.html#string-methods">Python string methods</a></li>
+
+<!--
+        <br><br>
+        <b>Note for Windows 7 users:</b> - if you get errors regarding something about "tkinter" or "tk" when running a graphics program,
+then you will have to install Tk.  Go to
+<a href="http://www.tkdocs.com/tutorial/install.html">TkDocs</a> and follow the appropriate directions for Windows.  Be sure to install the 32 bit version of Tk, <b>not</b> the 64 bit, <b>even if your computer is 64 bit</b>.
+-->
+    </li>
+
+</ul>
+
+
+
+
+</ul>
+
+<br>
+
+<h2>In-Class Examples</h2>
+<p>
+<ul>
+        <li><a href="http://cs.wheatonma.edu/mgousie/comp115/one.py">one.py</a> - first module (program)!</li>
+        <li><a href="http://cs.wheatonma.edu/mgousie/comp115/numsCh2.py">numsCh2.py</a> - easy numbers example.</li>
+	<li><a href="comp115/maze1.sb2">maze1.sb2</a> - my sample Scratch solution for the in-class problem.</li>
+        <li><a href="http://cs.wheatonma.edu/mgousie/comp115/stringCh2.py">stringCh2.py</a> - module showing string manipulation.</li>
+        <li><a href="http://cs.wheatonma.edu/mgousie/comp115/mathCh3.py">mathCh3.py</a> - square root and rounding example.</li>
+        <li><a href="http://cs.wheatonma.edu/mgousie/comp115/formatCh3.py">formatCh3.py</a> - shows how to format numbers.</li>
+        <li><a href="http://cs.wheatonma.edu/mgousie/comp115/firstGraphics.py">firstGraphics.py</a> - basic program using graphics library.</li>
+        <li><a href="http://cs.wheatonma.edu/mgousie/comp115/secondGraphics.py">secondGraphics.py</a> - shows graphics through a bar chart displaying student grades.</li>
+        <li><a href="http://cs.wheatonma.edu/mgousie/comp115/nameboxCh5.py">nameboxCh5.py</a> - displays a name centered in a graphics rectangle.</li>
+        <li><a href="http://cs.wheatonma.edu/mgousie/comp115/string2Ch5.py">string2Ch5.py</a> - using strings to display a name input in First Middle Last format.</li>
+        <li><a href="http://cs.wheatonma.edu/mgousie/comp115/filesCh5.py">filesCh5.py</a> - small example using files for input and output.</li>
+        <li><a href="http://cs.wheatonma.edu/mgousie/comp115/scores.dat">scores.dat</a> - input file for above program.</li>
+        <li><a href="http://cs.wheatonma.edu/mgousie/comp115/guessgameCh7.py">guessgameCh7.py</a> - guessing game using selection statements.</li>
+        <li><a href="http://cs.wheatonma.edu/mgousie/comp115/leapyear.py">leapyear.py</a> - one solution to leap year problem.</li>
+        <li><a href="http://cs.wheatonma.edu/mgousie/comp115/threeCharsCh8.py">threeCharsCh8.py</a> - using a loop to display every third character input.</li>
+        <li><a href="http://cs.wheatonma.edu/mgousie/comp115/mult.py">mult.py</a> - example showing nested <b>for</b> loops to generate a multiplication table.</li>
+        <li><a href="http://cs.wheatonma.edu/mgousie/comp115/median.py">median.py</a> - using a loop and a file to find the median of a list of values.</li>
+        <li><a href="http://cs.wheatonma.edu/mgousie/comp115/beersong1.py">beersong1.py</a> - first attempt at using a function to sing a song.</li>
+        <li><a href="http://cs.wheatonma.edu/mgousie/comp115/beersong2.py">beersong2.py</a> - working version of song program.</li>
+        <li><a href="http://cs.wheatonma.edu/mgousie/comp115/channel.py">channel.py</a> - program simulating silly TV showing the use of functions.</li>
+        <li><a href="http://cs.wheatonma.edu/mgousie/comp115/fractions.py">fractions.py</a> - basic example of the use of a class to store fractions.</li>
+        <li><a href="http://cs.wheatonma.edu/mgousie/comp115/gradeClass.py">gradeClass.py</a> - example of a class containing a list.</li>
+        <li><a href="http://cs.wheatonma.edu/mgousie/comp115/cards.py">cards.py</a> - class example showing how a deck of cards might be managed using a list.</li>
+        <li><a href="http://cs.wheatonma.edu/mgousie/comp115/array.py">array.py</a> - list example showing a clever use of indexing.</li>
+        <li><a href="http://cs.wheatonma.edu/mgousie/comp115/tictactoe.py">tictactoe.py</a> - using a 2D list to store a tic-tac-toe game.</li>
+        <li><a href="http://cs.wheatonma.edu/mgousie/comp115/tictactoeMain.py">tictactoeMain.py</a> - start of a game using a 2-dimensional list.</li>
+
+<li>
+        Example using a list of records and multiple modules:
+<ul>
+        <li>
+            <a href="http://cs.wheatonma.edu/mgousie/comp115/studentData">studentData</a> - the data file. </li>
+        <li>
+            <a href="http://cs.wheatonma.edu/mgousie/comp115/student.py">student.py</a> - the Student class implementation module. </li>
+        <li>
+            <a href="http://cs.wheatonma.edu/mgousie/comp115/listOfRecords.py">listOfRecords.py</a> - incomplete main module creating a list of Student records. </li>
+        <li>
+            <a href="http://cs.wheatonma.edu/mgousie/comp115/listOfRecordsComplete.py">listOfRecordsComplete.py</a> - complete solution for above. </li>
+</ul>
+</li>
+
+    	<li> <a href="http://cs.wheatonma.edu/mgousie/comp115/dict.py">dict.py</a> - example using a dictionary, using <a href="http://cs.wheatonma.edu/mgousie/comp115/text.txt">text.txt</a> as sample input. </li>
+	<li> <a href="comp115/mobyDick.txt">mobyDick.txt</a> - input text for in-class problem. </li>
+	<li> <a href="comp115/listOfWords.txt">listOfWords.txt</a> - list of words to search for and count for in-class problem. </li>
+	<li> <a href="comp115/mobyDick.py">mobyDick.py</a> - solution for in-class problem. </li>
+        <li> <a href="comp115/objrball.py">objrball.py</a> - textbook example of OOD; programming a racquetball game.</li>
+<!--
+        <a href="http://cs.wheatonma.edu/mgousie/comp115/p6solution.py">p6solution.py</a> - project 6 sample solution.
+
+-->
+
+</ul>
+
+<br>
+<h2>Handouts</h2>
+<ul>
+
+<!--
+        <a href="http://cs.wheatonma.edu/mgousie/comp115/e1q7.py">e1q7.py</a> -one solution to Question 7 on Exam 1.
+-->
+        <li><a href="http://cs.wheatonma.edu/mgousie/comp115/scope2Handout.py">scope2Handout.py</a> - program that shows some scope problems.</li>
+        <li><a href="http://cs.wheatonma.edu/mgousie/comp115/scoper.py">scoper.py</a> - scope example.</li>
+
+</ul>
+
+<!--
+<br>
+<h2>Lab Info</h2>
+
+<ul>
+
+        <a href="comp115/lab11Main.py">lab11Main.py</a> - starting point for Lab 11.<br>
+        <a href="comp115/tictactoeMain.py">tictactoeMain.py</a> - starting point for Lab 10.<br>
+        <a href="comp115/labtictactoe.py">labtictactoe.py</a> - (partial) solution for tic-tac-toe game.
+        <br>
+        <a href="comp115/lab3.py">lab3.py</a> - Python program for Lab 3.
+
+</ul>
+
+-->
+
+<br>
+<h2>Projects</h2>
+<p>
+<ul>
+   <li><a href="comp115/p6.pdf">Project P6</a>; Here's a sample <a href="comp115/p6input.txt">input file</a></li>
+   <li>Project P5</li>
+   <li>Project P4</li>
+   <li>Project P3</li>
+   <li>Project P2</li>
+   <li>Project P1</li>
+</ul>
+<div id="bottomstuff">
+<a href="http://cs.wheatonma.edu/~mgousie">Home</a> | <a href="comp115.html">Comp 
+        115</a> | <a href="comp298.html">Comp 298 </a> | <a href="http://cs.wheatonma.edu/~mgousie/research.html">Research</a> | <a href="http://cs.wheatonma.edu/~mgousie/antiresearch.html">Anti-Research</a><br>
+<i>Last updated
+<script language="JavaScript">
+document.write(document.lastModified);
+</script>
+</i>
+</div>
+<br>
+<br>
+<br>
+</div>  <!-- end of .box -->
+
+<p>
+
+
+
+</div>   <!-- end of #contents -->
+
+</div>   <!-- end of main #container -->
+
+
+      
+  </body>
+<!-- InstanceEnd --></html>

@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Page of Illusions - Home</title>
+    <link rel="stylesheet" href="illusionStyle.css" title="Illusion Style">
+
+</head>
+
+<body>
+    <h1 class="mainHeader"><img src="images/transparentFace.png" alt="My face" width=75 height=75> Benjamin Malz - The Illusion Project</h1>
+    <table class="linkBar">
+        <tr><td><a href="http://cs.wheatoncollege.edu/~bmalz/index.html"><b>Home</b></a></td>
+        <td><a href="http://cs.wheatoncollege.edu/~bmalz/COMP298.html"><b>Project One</b></a></td>
+        <td><a href="http://cs.wheatoncollege.edu/~bmalz/yaleArt/yaleHome.html"><b>Project Two</b></a></td></tr>
+    </table>
+    <table class="subLinkBar">
+        <tr><td><a href="illusionMain.html"><b>Main Page</b></a></td>
+        <td><a href="gradientIllusion.html"><b>Gradient Illusion</b></a></td>
+        <td><a href="railroadIllusion.html"><b>Ponzo Illusion</b></a></td></tr>
+    </table>
+    <div class="pageContent">
+            <h2>About This Site</h2>
+            <form id="nameForm">
+                <input type="text" value="Your name here" id="userName" name="nameReplaceBox">
+                <input type="submit" value="Change">
+            </form>
+            <blockquote>Welcome to the Page of Illusions! (Patent pending) Listen here, <span class="nameReplace">buddy</span>. If you ever feel lonely, and you
+            want a website to comfort you as if it's talking to you, well then, <span class="nameReplace">buddy</span>, you've come to the wrong place. I'm hardly comforting.
+            but I can fulfill the part of that dream where it's like the website is talking to you. <span class="nameReplace">Buddy</span>, all you need to do is put your name in the box
+            above this text and every time I call you 'buddy' it'll show your name instead. Get to it then, <span class="nameReplace">buddy</span>.</blockquote>
+            <h2>The Main Illusions</h2>
+            <table class="illusionLinks">
+                <tr><td><a href="gradientIllusion.html"><img class="imgLink" src="images/gradient800px.jpg" alt="The Gradient illusion" height=300 width=300> Gradient Illusion</a></td>
+                <td><a href="railroadIllusion.html"><img class= "imgLink" src="images/ponzoIllusion.jpg" alt="The Ponzo Illusion" height=300 width=300> Ponzo Illusion</a></td></tr>
+            </table>
+            <blockquote>Alright, <span class="nameReplace">buddy</span>. If you click either of the links above, you get taken to another page with some simple illusions.
+            <span class="nameReplace">Buddy</span>, what's neat about these illusions is that I made them special - just for you. Basically, you click them,
+            they get disproven. Pretty mind-blowing stuff. <span class="nameReplace">Buddy</span>, if you value your world view, don't proceed. These'll just show you
+            how wrong you are about everything you thought you knew. Unless you're me, in which case you've never been wrong.</blockquote>
+            <h2>Immobile Illusions</h2>
+            <blockquote>The illusions below are weird, <span class="nameReplace">buddy</span>. You look at them and it looks like they're moving.
+             They're actually static images, though, <span class="nameReplace">buddy</span>. I'm not lying. There's 8 pictures there for you to check out.
+            Just click a button to move forward or backward an image. Oh, and <span class="nameReplace">buddy</span>? Don't look at them for too long, it gets <i>terribly</i>
+             uncomfortable.</blockquote>
+            <div class="delusions">
+                <img id="illusionSlide" src="images/delusion1.jpg" alt="Headache-inducing illusions" style="margin: 0 auto" width=900 height=600>
+            </div>
+            <form id="imgForm">
+                <input type="button" id="cycleBack" value="<- Prev">
+                <input type="button" id="cycleFwd" value="Next ->">
+            </form>
+            
+    </div>
+    
+    <p class="bottomNavigation" style="width: 275px"><b>Last updated:
+    <script>
+        document.write(document.lastModified);
+    </script></b>
+    </p>
+    <p class= "bottomNavigation" style="width: 300px;">
+         <a href="http://cs.wheatoncollege.edu/~bmalz/index.html"><b>Home</b></a> //
+        <a href="http://cs.wheatoncollege.edu/~bmalz/COMP298.html"><b>Project One</b></a> //
+        <a href="http://cs.wheatoncollege.edu/~bmalz/yaleArt/yaleHome.html"><b>Project Two</b></a> 
+    </p>
+    <p class="bottomNavigation" style="width: 400px;">
+         <a href="illusionMain.html"><b>Main Page</b></a> //
+        <a href="gradientIllusion.html"><b>Gradient Illusion</b></a> //
+        <a href="railroadIllusion.html"><b>Ponzo Illusion</b></a> 
+    </p>
+    
+
+<script>
+    document.getElementById("nameForm").addEventListener("submit", nameReplace);
+        function nameReplace(event) {
+            var newName = document.getElementById("userName");
+            newName = newName.value;
+            var oldNames = document.getElementsByClassName("nameReplace");
+            for (var i = 0; i < oldNames.length; i++)
+            {
+                oldNames[i].innerHTML = newName;
+            }
+            event.preventDefault();
+        }
+        
+    imgArray = new Array(3);
+    imgArray[0] = new Image();
+    imgArray[0].src = "images/delusion2.jpg";
+    imgArray[1] = new Image();
+    imgArray[1].src = "images/delusion3.jpg";
+    imgArray[2] = new Image();
+    imgArray[2].src = "images/delusion4.jpg";
+    imgArray[3] = new Image();
+    imgArray[3].src = "images/delusion5.jpg";
+    imgArray[4] = new Image();
+    imgArray[4].src = "images/delusion6.jpg";
+    imgArray[5] = new Image();
+    imgArray[5].src = "images/delusion7.jpg";
+    imgArray[6] = new Image();
+    imgArray[6].src = "images/delusion8.jpg";
+    imgArray[7] = new Image();
+    imgArray[7].src = "images/delusion1.jpg";
+    var i;
+    i = 7;
+    document.getElementById("cycleFwd").addEventListener("click", nextImage);
+        function nextImage(event) {
+            {
+                i++;
+                if (i > 7)
+                {
+                   i = 0;
+                }
+                document.getElementById("illusionSlide").src = imgArray[i].src;
+                
+            }
+            event.preventDefault();
+        }
+    document.getElementById("cycleBack").addEventListener("click", prevImage);
+        function prevImage(event) {
+            {
+                i--;
+                if (i == -1)
+                {
+                    i = 7;
+                }
+                document.getElementById("illusionSlide").src = imgArray[i].src;
+                
+            }
+            
+            event.preventDefault();
+        }
+        
+    
+        
+</script>
+</body>
+</html>

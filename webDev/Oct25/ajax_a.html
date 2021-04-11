@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>Ajax A</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            font-weight: 800;
+            color: blue;
+        }
+    </style>
+</head>
+
+<body>
+<!-- <form>
+    <input type="button" value="Show me that next one friendo" id="nextButton">
+</form>-->
+<h2>A nice picture</h2>
+<div id="myImage">
+    <!--THERE IS NOTHING HERE HAHA WEE -->
+</div>
+
+
+<script>
+    //document.getElementById("nextButton").addEventListener("click", nextImage());
+    var image = document.getElementById("myImage");
+    var request = new XMLHttpRequest(); //Step One
+    request.addEventListener("load", function(){ //Step 2
+        alert("status:  " + this.status);
+        image.innerHTML = request.response; //Step 6
+    });
+    request.open("GET", "ajax_b.html"); //Step 3
+    request.send(); //Step 5
+    
+
+</script>
+
+</body>
+</html>

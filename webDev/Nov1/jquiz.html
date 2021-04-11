@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>jquery quizy poo</title>
+    <script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
+</head>
+
+<body>
+<h2>Lil Quiz</h2>
+<p>Select your favorite boy:</p>
+<form>
+    <input type="radio" value="Big Boy" id="bigButton" name="boy" class="boy"> BIG BOY <br>
+    <input type="radio" value="Medium Boy" id="mediumButton" name="boy" class="boy"> MEDIUM BOY <br>
+    <input type="radio" value="Small Boy" id="smallButton" name="boy" class="boy"> SMALL BOY <br>
+</form>
+
+<img src="images/smallboy.jpg" id="smlBoy" height=200>
+<img src="images/medboy.jpg" id="medBoy" height=200>
+<img src="images/bigboy.jpg" id="bigBoy" height=200>
+
+<script>
+    $("img").hide();
+    $(".boy").addEventListener("change", showBoy);
+    function showBoy() {
+        if ($(this).val() === "Small Boy"){
+            $("img#smlBoy").show();
+        }
+    }
+</script>
+</body>
+</html>

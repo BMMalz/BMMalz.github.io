@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <title>FotoFan</title>
+    <link rel="stylesheet" href="CSS/yippeeCSS.css" title="Yippee! Style">
+</head>
+
+<body id="fotoFanBod">
+    <form id="searchBar">
+        <select>
+            <option value="Search" id="Search" class="bar">Search Bar</option>
+            <option value="Country" id="country" class="bar">Country</option>
+            <option value="Continent" id="continent" class="bar">Continent</option>
+            <option value="Year" id="year" class="bar">Year</option>
+            <option value="State" id="state" class="bar">State</option>
+        </select>
+        <select style="display: none" id="countryBar" class="hideBar">
+            <option value="Country">--</option>
+            <option value="UK" id="UK" class="option">UK</option>
+            <option value="USA" id="USA" class="option">USA</option>
+            <option value="Germany" id="Germany" class="option">Germany</option>
+            <option value="Spain" id="Spain" class="option">Spain</option>
+        </select>
+        <select style="display: none" id="continentBar" class="hideBar">
+            <option value="Continent">--</option>
+            <option value="North America" id="North America" class="option">North America</option>
+            <option value="Europe" id="Europe" class="option">Europe</option>
+        </select>
+        <select style="display: none" id="yearBar" class="hideBar">
+            <option value="Year">--</option>
+            <option value="2005" id="2005" class="option">2005</option>
+            <option value="2007" id="2007" class="option">2007</option>
+            <option value="2008" id="2008" class="option">2008</option>
+            <option value="2010" id="2010" class="option">2010</option>
+            <option value="2012" id="2012" class="option">2012</option>
+            <option value="2015" id="2015" class="option">2015</option>
+            <option value="2016" id="2016" class="option">2016</option>
+            <option value="2017" id="2017" class="option">2017</option>
+        </select>
+        <select style="display: none" id="stateBar" class="hideBar">
+            <option value="State">--</option>
+            <option value="New Hampshire" id="New Hampshire" class="option">New Hampshire</option>
+            <option value="New Mexico" id="New Mexico" class="option">New Mexico</option>
+            <option value="Florida Keys" id="Florida Keys" class="option">Florida Keys</option>
+            <option value="Massachussetts" id="Massachussetts" class="option">Massachussetts</option>
+            <option value="Gulf of Mexico" id="Gulf of Mexico" class="option">Gulf of Mexico</option>
+            <option value="Wyoming" id="Wyoming" class="option">Wyoming</option>
+        </select>
+        <input type="text" name="search" id="inputSearch">
+        <input type="button" value="Search" id="theButton">
+        <span id="incorrect"></span>
+        
+        <input type="button" name="logout" id="logout" value="Logout" style="float: right; margin-right: 20px">
+        <input type="button" name="uploadButton" id="uploadButton" value="Upload" style="float: right; margin-right: 10px;">
+    </form>
+    <div class="container">
+    <div style="float: left; width: 82%; height: 60%; text-align: center; background-color: black">
+        <img id="mainPhoto">
+    </div>
+    <div style="float: left">
+        <img id="photo1" class="small">
+    </div>
+    <div style="float: left">
+        <img id="photo2" class="small">
+    </div>
+    <div>
+        <img id="photo3" class="small">
+    </div>
+    <div style="float: left">
+        <img id="photo4" class="small">
+    </div>
+    <div style="float: left">
+        <img id="photo5" class="small">
+    </div>
+    <div >
+        <img id="photo6" class="small">
+    </div>
+    <div style="float: left">
+        <img id="photo7" class="small">
+    </div>
+    <div style="float: left">
+        <img id="photo8" class="small">
+    </div>
+    <div>
+        <img id="photo9" class="small">
+    </div>
+    <div style="float: left">
+        <img id="photo10" class="small">
+    </div>
+    <div style="float: left">
+        <img id="photo11" class="small">
+    </div>
+    <div>
+        <img id="photo12" class="small">
+    </div>
+    <div style="float: left">
+        <img id="photo13" class="small">
+    </div>
+    <div style="float: left">
+        <img id="photo14" class="small">
+    </div>
+    <div>
+        <img id="photo15" class="small">
+    </div>
+    <div style="float: left">
+        <img id="photo16" class="small">
+    </div>
+    <div style="float: left">
+        <img id="photo17" class="small">
+    </div>
+    <div style="float: left">
+        <img id="photo18" class="small">
+    </div>
+    <div style="float: left">
+        <img id="photo19" class="small">
+    </div>
+    <div style="float: left">
+        <img id="photo20" class="small">
+    </div>
+    <div style="float: left">
+        <img id="photo21" class="small">
+    </div>
+    <div style="float: left">
+        <img id="photo22" class="small">
+    </div>
+    <div style="float: left">
+        <img id="photo23" class="small">
+    </div>
+    <div style="float: left">
+        <img id="photo24" class="small">
+    </div>
+    </div>
+    <div style="background-color: red; border: 1px solid red; width: 10%; height: 20%"></div>
+    <div id="metaBox">
+        <p id="yearData"></p>
+        <p id="locationData"></p>
+        <p id="descData"></p>
+    </div>
+    <script>
+        var Obj;
+        var notNeeded;
+        
+        var urlResults = location.search.replace('?', '').split('=');
+        var User = urlResults[1];
+        
+        $(document).ready(function(){
+            $.get("PHP/photos.php?User=" + User, notNeeded, function (response) {
+                Obj = JSON.parse(response);
+                if (!Obj.success)
+                {
+                    alert("You're not supposed to be here...");
+                }
+        });
+        });
+        var optionName = "";
+        $(".option").click(function() {
+           optionName = $(this).attr("id");
+        });
+        
+        $("#logout").click(function(){
+            location.href = "index.html";
+            
+        });
+        $("#theButton").click(function() {
+            var searchName = document.getElementById("inputSearch");
+            searchName = searchName.value;
+            for (x=1;x<25;x++) {
+                            $("#photo" + x).removeAttr('src');
+                        }
+            if (searchName === "") {
+                searchName = optionName;
+            }
+            var found = false;
+            var overallFound = false;
+            var i = 0;
+
+            for(k = 0; k < Obj.photos.length; k++){
+                found = false;
+                //alert(Obj.photos[k].filename);
+                if (Obj.photos[k].Continent === searchName){
+                    found = true;
+                    overallFound = true;
+                }
+                else if (Obj.photos[k].Country === searchName){
+                    found = true;
+                    overallFound = true;
+                }
+                else if (Obj.photos[k].Date === searchName){
+                    found = true;
+                    overallFound = true;
+                }
+                else if (Obj.photos[k].Location === searchName){
+                    found = true;
+                    overallFound = true;
+                }
+                else
+                {
+                    for (j = 0; j < Obj.photos[k].Tags.length; j++)
+                    {
+                        if (Obj.photos[k].Tags[j] === searchName)
+                        {
+                            found = true;
+                            overallFound = true;
+                        }
+                    }
+                }
+                if (found)
+                {
+                    $("#incorrect").html("");
+                    if (i === 0)
+                    {
+                        $("#mainPhoto").attr('src',Obj.photos[k].filename);
+                        $("#photo" + (i + 1)).attr('src',Obj.photos[k].filename);
+                        var metaDate = Obj.photos[k].Date;
+                        var metaLocat = Obj.photos[k].Location + ", " + Obj.photos[k].Country;
+                        var metaDesc = Obj.photos[k].Description;
+                        $("#yearData").html("Year: " + metaDate);
+                        $("#locationData").html("Location: " + metaLocat);
+                        $("#descData").html("Description: " + metaDesc);
+                        i++;
+                    }
+                    else
+                    {
+                        $("#photo" + (i + 1)).attr('src',Obj.photos[k].filename);
+                        i++;
+                    }
+                }
+            }
+            
+            if (!overallFound){
+                $("#incorrect").html("Search returned no results... Please try again.");
+                
+            }
+            found = false;
+        });
+        
+        $(".bar").click(function() {
+            $(".hideBar").attr('style', 'display:none');
+            var barName = $(this).attr("id");
+            $("#inputSearch").attr('style', 'display: none');
+            $("#" + barName + "Bar").attr('style', 'display: show');
+            if (barName == "Search") {
+                $("#inputSearch").attr('style', 'display: show');
+                $(".hideBar").attr('style', 'display:none');
+            }
+        });
+        
+        var objPosition;
+        
+        
+        $(".small").click(function() {
+            var photoName = $(this).attr("id");
+            var source = ($("#" + photoName).attr('src'));
+            $( "#mainPhoto" ).fadeTo( "fast" , 0, function() {
+                $("#mainPhoto").attr('src',source);
+                var curFile = $("#mainPhoto").attr('src');
+                for (i = 0; i < Obj.photos.length; i++)
+                {
+                    //alert(i);
+                    if (curFile === Obj.photos[i].filename)
+                    {
+                        objPosition = i;
+                    }
+                }
+                var metaDate = Obj.photos[objPosition].Date;
+                var metaLocat = Obj.photos[objPosition].Location + ", " + Obj.photos[objPosition].Country;
+                var metaDesc = Obj.photos[objPosition].Description;
+                $("#yearData").html("Year: " + metaDate);
+                $("#locationData").html("Location: " + metaLocat);
+                $("#descData").html("Description: " + metaDesc);
+                });
+            $("#mainPhoto").fadeTo("fast", 1);
+           
+        });
+        
+    </script>
+
+</body>
+</html>

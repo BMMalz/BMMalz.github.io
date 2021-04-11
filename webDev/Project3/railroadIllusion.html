@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Page of Illusions - The Ponzo Illusion</title>
+    <link rel="stylesheet" href="illusionStyle.css" title="Illusion Style">
+</head>
+
+<body>
+    <h1 class="mainHeader"><img src="images/transparentFace.png" alt="My face" width=75 height=75> Benjamin Malz - The Illusion Project</h1>
+    <table class="linkBar">
+        <tr><td><a href="http://cs.wheatoncollege.edu/~bmalz/index.html"><b>Home</b></a></td>
+        <td><a href="http://cs.wheatoncollege.edu/~bmalz/COMP298.html"><b>Project One</b></a></td>
+        <td><a href="http://cs.wheatoncollege.edu/~bmalz/yaleArt/yaleHome.html"><b>Project Two</b></a></td></tr>
+    </table>
+    <table class="subLinkBar">
+        <tr><td><a href="illusionMain.html"><b>Main Page</b></a></td>
+        <td><a href="gradientIllusion.html"><b>Gradient Illusion</b></a></td>
+        <td><a href="railroadIllusion.html"><b>Ponzo Illusion</b></a></td></tr>
+    </table>
+    <div class="pageContent">
+            <h2>The Ponzo Illusion</h2>
+            <form id="nameForm">
+                <input type="text" value="Your name here" id="userName" name="nameReplaceBox">
+                <input type="submit" value="Change">
+            </form>
+            <blockquote>Alright, <span class="nameReplace">buddy</span>. Before we get started, feel free to put your name up top if you want
+            to pretend that the website knows you personally. <span class="nameReplace">Buddy</span>, now that we've gotten that out of the way, let's
+            talk about the Ponzo Illusion. You see, <span class="nameReplace">buddy</span>, the human brain is <i>stupid</i>. When it sees an object
+            with a background, it assumes the size of that object based on the background. That's right, <span class="nameReplace">buddy</span>, your
+            brain isn't as great as you think it is. So what the Ponzo Illusion does is place two of the same sized rectangle on a railroad-looking background.
+            That background makes it look like the top rectangle is larger than the bottom. So scroll down a bit, <span class="nameReplace">buddy</span>,
+            and see what I'm talking about. Press the "Prove it" button to see proof they're the same size, and "Reset" to get rid of the proof.</blockquote>
+    <canvas id="railroadCanvas" height="578" width="800" style="background-image: url(images/ponzoIllusion.jpg); border: 3px solid #5963b2; margin: auto; display: block;"></canvas>
+    <form style="margin: 5px auto; text-align: center;">
+        <input type="button" value="Prove it" id="solveButton">
+        <input type="button" value="Reset" id="resetButton">
+    </form>
+    <h2>Links</h2>
+    <table class="illusionLinks">
+        <tr><td><a href="illusionMain.html"><img class= "imgLink" src="images/zigzagdark.png" alt="Homepage" height=300 width=300> Main Page</a></td>
+        <td><a href="gradientIllusion.html"><img class="imgLink" src="images/gradient800px.jpg" alt="The Gradient illusion" height=300 width=300> Gradient Illusion</a></td></tr>
+    </table>
+    </div>
+    <p class="bottomNavigation" style="width: 275px"><b>Last updated:
+    <script>
+        document.write(document.lastModified);
+    </script></b>
+    </p>
+    <p class= "bottomNavigation" style="width: 300px;">
+         <a href="http://cs.wheatoncollege.edu/~bmalz/index.html"><b>Home</b></a> //
+        <a href="http://cs.wheatoncollege.edu/~bmalz/COMP298.html"><b>Project One</b></a> //
+        <a href="http://cs.wheatoncollege.edu/~bmalz/yaleArt/yaleHome.html"><b>Project Two</b></a> 
+    </p>
+    <p class="bottomNavigation" style="width: 400px;">
+         <a href="illusionMain.html"><b>Main Page</b></a> //
+        <a href="gradientIllusion.html"><b>Gradient Illusion</b></a> //
+        <a href="railroadIllusion.html"><b>Ponzo Illusion</b></a> 
+    </p>
+<script>
+    document.getElementById("solveButton").addEventListener("click", illusionSolver);
+    var c=document.getElementById("railroadCanvas");
+    var ctx=c.getContext("2d");
+    var canvasPos = 0;
+    
+    function illusionSolver()
+    {
+        ctx.clearRect(0, 0, 10000, 10000);
+        ctx.fillStyle = "red";
+        ctx.fillRect(295, (canvasPos * 2) - 516, 10, 359);
+        ctx.fillRect(496, 744 - (canvasPos * 2), 10, 359);
+        if (canvasPos < 315)
+        {
+            canvasPos += 3;
+            window.requestAnimationFrame(illusionSolver);
+        }
+        
+    }
+    document.getElementById("resetButton").addEventListener("click", clearSolution);
+    function clearSolution()
+    {
+        ctx.clearRect(0, 0, 10000, 10000);
+        ctx.fillStyle = "red";
+        ctx.fillRect(295, (canvasPos * 2) - 516, 10, 359);
+        ctx.fillRect(496, 744 - (canvasPos * 2), 10, 359);
+        canvasPos -= 6;
+        if (canvasPos > 0)
+        {
+            window.requestAnimationFrame(clearSolution);
+        }
+        
+    }
+    document.getElementById("nameForm").addEventListener("submit", nameReplace);
+        function nameReplace(event) {
+            var newName = document.getElementById("userName");
+            newName = newName.value;
+            var oldNames = document.getElementsByClassName("nameReplace");
+            for (var i = 0; i < oldNames.length; i++)
+            {
+                oldNames[i].innerHTML = newName;
+            }
+            event.preventDefault();
+        }
+</script>
+
+
+</body>
+
+</html>

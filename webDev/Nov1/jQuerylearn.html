@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>jQuizzle!</title>
+    <style>
+        p {
+            font-family: sans-serif;
+            font-size: 26px;
+        }
+        .super
+        {
+            font-size: 40px;
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
+
+    <p id="one">This is first<input type="button" value="One" id="oneButton"></p>
+    <p id="two">This is second<input type="button" value="Two" id="twoButton"></p>
+    
+    <script>
+        document.getElementById("oneButton").addEventListener("click", funOne);
+        $("#twoButton").click(funTwo);
+        // dblclick() mouseover() mouseout() see table 9.3.1
+        
+        function funOne () {
+            $("#one").addClass("super");
+            $("#two").removeClass("super");
+        }
+        
+        function funTwo () {
+            $(document).ready(function() {$("#two").addClass("super");});
+            $(function() {$("#one").removeClass("super");});
+        }
+        
+        $("p").css("color", "blue");
+        //object   attribute  value   - dynamically modifies DOM
+    </script>
+
+</body>
+</html>

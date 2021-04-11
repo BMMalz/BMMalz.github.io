@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>Pisa's Pizza Palace - Home</title>
+    <script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <style>
+    @media screen and (min-width: 1000px) {
+        body {
+            background-color: maroon;
+            padding: 0;
+            margin: 0;
+        }
+        div#menu {
+            position: fixed;
+            z-index: 2;
+            left: 0px;
+            top: 0px;
+            width: 100%;
+            background-color: #d85454;
+            height: 10vh;
+            text-align: center;
+            box-shadow: 0px 0px 10px #5e5e5e;
+        }
+        table#menu td {
+            display: inline;
+            color: white;
+            font-family: sans-serif;
+            font-size: 3vh;
+            margin-left: 3vw;
+            margin-right: 3vw;
+            padding: 2vh;
+            transition: 0.7s;
+            border-radius: 10px;
+        }
+        table#menu td:hover {
+            cursor: pointer;
+            background-color: #ba3232;
+            color: #ffe177;
+        }
+        table#menu {
+            margin: auto;
+            margin-top: 3vh;
+        }
+        img#logo {
+            height: 9vh;
+            position: absolute;
+            left: 20px;
+            top: 5px;
+            transition: 0.5s;
+            transform: rotate(-45deg);
+        }
+        img#logo:hover {
+            cursor: pointer;
+            transition: 0.5s;
+            transform: rotate(360deg);
+        }
+        img#cart {
+            height: 4vh;
+            position: absolute;
+            right: 50px;
+            top: 2vh;
+            border-radius: 10px;
+            padding: 1vh;
+            transition: 0.5s;
+        }
+        img#cart:hover {
+            background-color: #ffe177;
+            transition: 0.8s;
+            cursor: pointer;   
+        }
+        div#content {
+            width: 90vw;
+            text-align: center;
+            margin: auto;
+        }
+        h1#deals {
+            color: white;
+            font-family: sans-serif;
+            font-size: 8vh;
+            margin-top: 5vh;
+        }
+        div#innerContent {
+            width: 60vw;
+            margin: auto;
+        }
+        img#todaySpecial {
+            height: 50vh;
+            z-index: 1;
+            top: 40vh;
+            left: 30vw;
+        }
+        img#todaySpecial:hover {
+            cursor: pointer;
+        }
+        div#welcome {
+            color: #d85454;
+            font-family: sans-serif;
+            padding-top: 1.5vh;
+            margin-top: 10vh;
+            height: 7vh;
+            font-size: 5vh;
+            background-color: white;
+            text-align: center;
+            width: 100%;
+        }
+        button#buyNow {
+            background-color: maroon;
+            color: white;
+            border-radius: 10px;
+            padding: 2vh;
+            font-family: sans-serif;
+            font-size: 3vh;
+            transition: 0.3s;
+        }
+        button#buyNow:hover {
+            cursor: pointer;
+            background-color: white;
+            color: maroon;
+            transition: 0.3s;
+        }
+        div#footer {
+            margin-top: 10vh;
+            background-color: #474747;
+            padding-top: 6vh;
+            padding-bottom: 3vh;
+            height: 8vh;
+            min-height: 50px;
+            width: 100%;
+            color: white;
+            text-align: center;
+            font-family: sans-serif;
+        }
+    }
+    @media screen and (max-width: 1000px) {
+        body {
+            background-color: maroon;
+            width: 100%;
+            margin: 0;
+            padding: 0;
+        }
+        div#menu {
+            position: fixed;
+            z-index: 2;
+            left: 0px;
+            top: 0px;
+            width: 100vw;
+            background-color: #d85454;
+            padding-top: 15px;
+            padding-bottom: 15px;
+            box-shadow: 0px 0px 10px #5e5e5e;
+        }
+        table#menu td {
+            display: inline;
+            color: white;
+            font-family: sans-serif;
+            font-size: 15pt;
+            
+            border-radius: 10px;
+            transition: 0.3s;
+            margin-right: 4vw;
+            margin-left: 4vw;
+        }
+        table#menu td:hover {
+            cursor: pointer;
+            background-color: #ba3232;
+            color: #ffe177;
+        }
+        table#menu {
+            margin: auto;
+            text-align: center;
+        }
+        img#logo {
+            display: none;
+        }
+        img#cart {
+            display: none;
+        }
+        div#content {
+            width: 90vw;
+            text-align: center;
+            margin: auto;
+            margin-top: 3vh;
+        }
+        h1#deals {
+            color: white;
+            font-family: sans-serif;
+            font-size: 8vh;
+        }
+        div#innerContent {
+            width: 90vw;
+            margin: auto;
+            margin-top: 0;
+        }
+        img#todaySpecial {
+            height: 30vh;
+            z-index: 1;
+        }
+        img#todaySpecial:hover {
+            cursor: pointer;
+        }
+        div#welcome {
+            color: #d85454;
+            font-family: sans-serif;
+            padding-top: 1.5vh;
+            margin-top: 55px;
+            height: 7vh;
+            font-size: 5vh;
+            background-color: white;
+            text-align: center;
+            width: 100%;
+        }
+        button#buyNow {
+            background-color: maroon;
+            margin-top: 3vh;
+            color: white;
+            border: 2px solid white;
+            border-radius: 10px;
+            padding: 2vh;
+            font-family: sans-serif;
+            font-size: 3vh;
+            transition: 0.3s;
+        }
+        button#buyNow:hover {
+            cursor: pointer;
+            background-color: white;
+            color: maroon;
+            transition: 0.3s;
+        }
+        div#footer {
+            margin-top: 10vh;
+            background-color: #474747;
+            padding-top: 4vh;
+            padding-bottom: 2vh;
+            min-height: 70px;
+            height: 8vh;
+            width: 100%;
+            color: white;
+            font-size: 10pt;
+            
+            text-align: center;
+            font-family: sans-serif;
+        }
+    }
+    @media screen and (max-width: 500px) {
+        td#menuCell{
+            margin-left: 0;
+            margin-right: 0;
+        }
+        table#menu td {
+            font-size: 10pt;   
+        }
+        div#menu {
+            padding-top: 10px;
+            padding-bottom: 10px;
+        }
+        div#welcome {
+            margin-top: 40px;
+        }
+    }
+    </style>
+</head>
+
+<body>
+    <div id="menu">
+        <a href="index.html"><img id="logo" src="images/pisaLogo.png"></a>
+        <table id="menu">
+            <tr>
+                <td><a href="index.html" style="text-decoration: none; color: inherit"><b>HOME</b></a></td>
+                <td><a href="pisaOrder.html" style="text-decoration: none; color: inherit"><b>ORDER</b></a></td>
+                <td><a href="pisaCheckout.html" style="text-decoration: none; color: inherit"><b>CHECKOUT</b></a></td>
+            </tr>
+        </table>
+        <a href="pisaCheckout.html"><img id="cart" src="images/cart.png"></a>
+    </div>
+    <div id="welcome"><b id="welcome"></b></div>
+    <div id="content">
+        <h1 id="deals">TODAY'S SPECIAL</h1>
+        <div id="innerContent">
+            <img id="todaySpecial" src="images/todaySpecial.png">
+        </div>
+        <a href="pisaOrder.html"><button id="buyNow"><b>BUY NOW</b></button></a>
+    </div>
+    <div id="footer"><span id="footer">&#169 Pisa's Pizza Palace 2017, all rights reserved.<br>
+    By using this website you consent to Pisa's Pizza Palace sending a man to scream outside your house early every morning.</span></div>
+    
+
+<script>
+    
+	$(document).ready(function(){
+            var visitCheck = getCookie("visited");
+            if (visitCheck !== "true"){
+                $("#welcome").html("WELCOME, VISITOR!");
+            }
+            else{
+                $("#welcome").html("WELCOME BACK!");
+            }
+            setCookie("visited", true, 365);
+            check = getCookie("visited");
+        });
+
+	function setCookie (name, value, numDays) {
+	    var date = new Date();
+	    // getTime() gets today's date in milliseconds as of 01/01/1970
+	    date.setTime (date.getTime() + (1000 * 60 * 60 * 24 * numDays));
+	    //                              milli  sec  min  hr   days
+	    // converted to total milliseconds to add to today
+	    var expires = "expires=" + date.toUTCString();
+	    document.cookie = name + "=" + value + ";" + expires + ";path=/";
+	}
+
+	function getCookie (name) {
+	// return value of cookie with specified name
+	    var searchName = name + "=";				
+	    var decodedCookie = decodeURIComponent (document.cookie);	
+	    var carray = decodedCookie.split(';');			
+	    var i, oneCookie;
+
+	    for (i = 0; i < carray.length; i++) {		
+                oneCookie = carray[i];				
+	 	while (oneCookie.charAt(0) == ' ') {		
+		    oneCookie = oneCookie.substring(1);
+		}
+		if (oneCookie.indexOf(searchName) === 0) {
+		    return oneCookie.substring (searchName.length, oneCookie.length);
+		}
+	    }
+	    return "";   // fail
+	}
+
+	function delCookie(name) {
+	    // delete a cookie with given name
+	    // either of these works
+	    // document.cookie = name + "=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/";
+	    document.cookie = name + "=; expires=; path=/";
+	}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<!--
+    Michael Gousie
+    Web Development, Fall 2017
+    File: cookiesPHP.html
+
+    Using JavaScript and PHP to both access cookies.
+-->
+
+<html>
+<head>
+    <title>Amazonia</title>
+    <style>
+	p.float {
+	    width: 230px;
+	    float: left;
+	    margin: 10px;
+	    padding: 5px;
+	    border: 3px solid;
+	}
+    </style>
+    <script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
+</head>
+
+<body>
+    <h3>Buy Stuff!</h3>
+    <p class="float" id="111">Item One: $10.99
+	<input type="button" value="Buy" id="111"></p>
+    <p class="float" id="222">Item Two: $59.97
+	<input type="button" value="Buy" id="222"></p>
+    <p class="float" id="333">Item Three: $22.59
+	<input type="button" value="Buy" id="333"></p>
+    <p class="float" id="cart"><input type="button" value="Cart" id="cart"></p>
+    
+    <script>
+	var itemTotal = 0;
+	$("#111").click(funOne);
+	$("#222").click(funOne);
+	$("#333").click(funOne);
+	$("#cart").click(cart);
+	
+	function funOne () {
+			setCookie ("item" + itemTotal, this.id, 365);
+			itemTotal++;
+	}
+	function cart () {
+		$("p#cart").html ("");
+	    var itemNum;
+		for (i = 0; i < itemTotal; i++)
+		{
+	    itemNum = getCookie ("item" + i);
+		delCookie("item" + i);
+	    if (itemNum === "") {
+		//var html = "<h3>Nothing in cart</h3>";
+		//$("p#cart").html (html);
+	    }
+	    else {
+		var html = "<h3>Item " + itemNum + " is in cart</h3>";
+		$("p#cart").append (html);
+	    }
+		}
+	}
+	
+
+	function setCookie (name, value, numDays) {
+	    var date = new Date();
+	    // getTime() gets today's date in milliseconds as of 01/01/1970
+	    date.setTime (date.getTime() + (1000 * 60 * 60 * 24 * numDays));
+	    //                              milli  sec  min  hr   days
+	    // converted to total milliseconds to add to today
+	    var expires = "expires=" + date.toUTCString();
+	    document.cookie = name + "=" + value + ";" + expires + ";path=/";
+	}
+
+	function getCookie (name) {
+	// return value of cookie with specified name
+	    var searchName = name + "=";				
+	    var decodedCookie = decodeURIComponent (document.cookie);	
+	    var carray = decodedCookie.split(';');			
+	    var i, oneCookie;
+
+	    for (i = 0; i < carray.length; i++) {		
+                oneCookie = carray[i];				
+	 	while (oneCookie.charAt(0) == ' ') {		
+		    oneCookie = oneCookie.substring(1);
+		}
+		if (oneCookie.indexOf(searchName) == 0) {
+		    return oneCookie.substring (searchName.length, oneCookie.length);
+		}
+	    }
+	    return "";   // fail
+	}
+
+	function delCookie (name) {
+	    // delete a cookie with given name
+	    // either of these works
+	    // document.cookie = name + "=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/";
+	    document.cookie = name + "=; expires=; path=/";
+	}
+</script>
+
+</body>
+</html>

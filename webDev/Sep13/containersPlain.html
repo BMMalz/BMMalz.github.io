@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<!--
+    Michael Gousie
+    Web Development, Fall 2017
+    File: containersPlain.html
+-->
+
+<html>         
+<head>
+    <title>Containers</title>
+    
+    <style>
+        div {
+            background-color: #af88aa;
+            width: 600px;
+            height: 300px;
+            padding: 5px 20px 0px 5px; /*top right bottom left */
+        }
+        
+        p.one {
+            background-color: #8844FF;
+            padding-left: 10px;
+        }
+        
+        p.two {
+            background-color: #aabbcc;
+            height: 150px;
+            width: 50%;
+            padding: 1%;
+            margin-left: 160px;
+            margin-top: -35px;
+            opacity: .5;
+        }
+        
+        li {
+            display: inline;
+        }
+
+    </style>
+</head>
+
+<body>
+    <h2>Containers and Box Model</h2>
+    <div>
+        <p class="one">Here is a little paragraph<br>
+        with a few lines.  I'm using break<br>
+        to make a "box".  Just another <br>
+        couple of lines here.  Just another <br>
+        couple of lines.</p>
+    
+        <p class="two">Here's another "box". Normally, a "p" tag makes
+        a box that just fits the text.</p>
+        
+    </div>
+</body>
+</html>

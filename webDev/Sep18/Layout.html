@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<!--
+    Michael Gousie
+    Web Development, Fall 2017
+    File: layoutPlain.html
+-->
+
+<html>
+<head>
+    <title>Layout</title>
+    
+    <style>
+        div {
+            width: 600px;
+            height: 300px;
+            background-color: #999999;
+        }
+        li {
+            display: inline;
+            margin-right: 20px;
+            color: #992222;
+            font-weight: bold;
+            background-color: #EEEEEE;
+            padding: 5px 5px 5px 5px;
+        }
+        div.left {
+            width: 290px;
+            height: 295px;
+            background-color: #DDDDFF;
+            float: left;
+        }
+        div.right {
+            width: 300px;
+            background-color: #FFBBBB;
+            float: right;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <h2>Layout and Inline/Block</h2>
+        <ul>
+            <li>Home</li>
+            <li>Away</li>
+            <li class="fancy">This</li>
+            <li>That</li>
+        </ul>
+        
+    <div class="left">
+        <p>
+        Stuff in left column.  Note that the size of the column(s)
+        is critical.
+        </p>
+        <p>As a special note, <b>alignment etc. should be EXACT</b> in your
+        projects.  This is what computers are made to do.</p>
+    </div>
+    
+    <div class="right">
+        <p>Stuff in right column.  And an image:</p>
+        <img src="images/gum.gif" width="150"> <span class="more">Here is more text.</span>
+    </div>
+    
+    </div>
+
+</body>
+</html>

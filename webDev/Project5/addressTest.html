@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<!--
+    Michael Gousie
+    Web Development, Fall 2017
+    File: cookiesPHP.html
+
+    Using JavaScript and PHP to both access cookies.
+-->
+
+<html>
+<head>
+    <title>Test</title>
+    <style>
+	p.float {
+	    width: 230px;
+	    float: left;
+	    margin: 10px;
+	    padding: 5px;
+	    border: 3px solid;
+	}
+    </style>
+    <script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
+</head>
+
+<body>
+    <h3>Buy Stuff!</h3>
+    <form id="addForm">
+        Address: <input type="text" id="addBox"><br>
+        State: <input type="text" id="stateBox"><br>
+        ZIP Code: <input type="text" id="zipBox">
+        <input type="button" id="submitAdd" value="Submit">
+    </form>
+    <input type="button" id="dispAdd" value="Display"><br>
+    <input type="button" id="clearInfo" value="Clear Cookies"><br>
+    <p id="addressTing"></p>
+    Cheese Pizza: <select id="cheeseNum">
+        <option value="0" selected="selected">0</option>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+        <option value="7">7</option>
+        <option value="8">8</option>
+        <option value="9">9</option>
+        <option value="10">10</option>
+    </select>
+    Pepperoni Pizza: <select id="pepNum">
+        <option value="0" selected="selected">0</option>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+        <option value="7">7</option>
+        <option value="8">8</option>
+        <option value="9">9</option>
+        <option value="10">10</option>
+    </select>
+    Deep Fried Pizza: <select id="friedNum">
+        <option value="0" selected="selected">0</option>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+        <option value="7">7</option>
+        <option value="8">8</option>
+        <option value="9">9</option>
+        <option value="10">10</option>
+    </select>
+    Inverted Pizza: <select id="invertedNum">
+        <option value="0" selected="selected">0</option>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+        <option value="7">7</option>
+        <option value="8">8</option>
+        <option value="9">9</option>
+        <option value="10">10</option>
+    </select>
+    Water Pizza: <select id="waterNum">
+        <option value="0" selected="selected">0</option>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+        <option value="7">7</option>
+        <option value="8">8</option>
+        <option value="9">9</option>
+        <option value="10">10</option>
+    </select>
+    Pizzaball: <select id="ballNum">
+        <option value="0" selected="selected">0</option>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+        <option value="7">7</option>
+        <option value="8">8</option>
+        <option value="9">9</option>
+        <option value="10">10</option>
+    </select>
+	Gasoline-Soaked Pizza: <select id="gasNum">
+        <option value="0" selected="selected">0</option>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+        <option value="7">7</option>
+        <option value="8">8</option>
+        <option value="9">9</option>
+        <option value="10">10</option>
+    </select>
+    <input type="button" id="changeCart" value="Set Cart"><br>
+    <script>
+	$("#submitAdd").click(getAddress);
+    $("#dispAdd").click(displayAdd);
+    $("#clearInfo").click(removeInfo);
+    $("#changeCart").click(updateCart);
+    
+	
+	function getAddress () {
+			setCookie ("address", $("#addBox").val(), 365);
+            setCookie ("state", $("#stateBox").val(), 365);
+            setCookie ("zip", $("#zipBox").val(), 365);
+            setCookie ("visited", true, 365);
+            
+	}
+	function displayAdd () {
+		$("#addressTing").html ("");
+	    var addressStr = getCookie("address");
+        var visitedCheck = getCookie("visited");
+        //alert(visitedCheck);
+        var totalPrice = 0;
+        var stateStr = getCookie("state");
+        var zipStr = getCookie("zip");
+        var numCheese = getCookie("cheeseP");
+        var numPep = getCookie("pepP");
+        var numFried = getCookie("friedP");
+        var numInvert = getCookie("invertedP");
+        var numWater = getCookie("waterP");
+        var numBall = getCookie("ballP");
+		var numGas = getCookie("gasP");
+        if (visitedCheck === "true"){
+            $("#addressTing").html("You've been here before. <br>");
+            $("#addressTing").append(addressStr + "<br>" + stateStr + " " + zipStr + "<br>");
+        }
+        if (numCheese !== "0" && numCheese !== "undefined"){
+            $("#addressTing").append(numCheese + " Cheese Pizzas in cart - Price: $" + parseFloat(parseInt(numCheese) * 15.99).toFixed(2) + "<br>");
+            totalPrice += (parseInt(numCheese) * 15.99);
+            
+        }
+        if (numPep !== "0" && numPep !== "undefined"){
+            $("#addressTing").append(numPep + " Pepperoni Pizzas in cart - Price: $" + pariseFloat(parseInt(numPep) * 17.49).toFixed(2) + "<br>");
+            totalPrice += (parseInt(numPep) * 17.49);
+        }
+        if (numFried !== "0" && numFried !== "undefined"){
+            $("#addressTing").append(numFried + " Deep-Fried Pizzas in cart - Price: $" + parseFloat(parseInt(numFried) * 22.99).toFixed(2) + "<br>");
+            totalPrice += (parseInt(numFried) * 22.99);
+        }
+        if (numInvert !== "0" && numInvert !== "undefined"){
+            $("#addressTing").append(numInvert + " Inverted Pizzas in cart - Price: $" + parseFloat(parseInt(numInvert) * 19.29).toFixed(2) + "<br>");
+            totalPrice += (parseInt(numInvert) * 19.29);
+        }
+        if (numWater !== "0" && numWater !== "undefined"){
+            $("#addressTing").append(numWater + " Water Pizzas in cart - Price: $" + parseFloat(parseInt(numWater) * 12.49).toFixed(2) + "<br>");
+            totalPrice += (parseInt(numWater) * 12.49);
+        }
+        if (numBall !== "0" && numBall !== "undefined"){
+            $("#addressTing").append(numBall + " Pizzaballs in cart - Price: $" + parseFloat(parseInt(numBall) * 32.99).toFixed(2) + "<br>");
+            totalPrice += (parseInt(numBall) * 32.99);
+        }
+		if (numGas !== "0" && numGas !== "undefined"){
+            $("#addressTing").append(numGas + " Gasoline-Soaked Pizzas in cart - Price: $" + parseFloat(parseInt(numGas) * 8.99).toFixed(2) + "<br>");
+            totalPrice += (parseInt(numGas) * 8.99);
+        }
+        $("#addressTing").append("Your total price is like, $" + parseFloat(totalPrice).toFixed(2) + ", bro <br>");
+		}
+	function removeInfo() {
+        delCookie("address");
+        delCookie("visited");
+        delCookie("state");
+        delCookie("zip");
+        delCookie("cheeseP");
+        delCookie("pepP");
+        delCookie("friedP");
+        delCookie("invertedP");
+        delCookie("waterP");
+        delCookie("ballP");
+		delCookie("gasP");
+        
+    }
+    
+    function updateCart() {
+        setCookie ("cheeseP", $("#cheeseNum").val(), 365);
+        setCookie ("pepP", $("#pepNum").val(), 365);
+        setCookie ("friedP", $("#friedNum").val(), 365);
+        setCookie ("invertedP", $("#invertedNum").val(), 365);
+        setCookie ("waterP", $("#waterNum").val(), 365);
+        setCookie ("ballP", $("#ballNum").val(), 365);
+		setCookie ("gasP", $("#gasNum").val(), 365);
+        
+    }
+
+	function setCookie (name, value, numDays) {
+	    var date = new Date();
+	    // getTime() gets today's date in milliseconds as of 01/01/1970
+	    date.setTime (date.getTime() + (1000 * 60 * 60 * 24 * numDays));
+	    //                              milli  sec  min  hr   days
+	    // converted to total milliseconds to add to today
+	    var expires = "expires=" + date.toUTCString();
+	    document.cookie = name + "=" + value + ";" + expires + ";path=/";
+	}
+
+	function getCookie (name) {
+	// return value of cookie with specified name
+	    var searchName = name + "=";				
+	    var decodedCookie = decodeURIComponent (document.cookie);	
+	    var carray = decodedCookie.split(';');			
+	    var i, oneCookie;
+
+	    for (i = 0; i < carray.length; i++) {		
+                oneCookie = carray[i];				
+	 	while (oneCookie.charAt(0) == ' ') {		
+		    oneCookie = oneCookie.substring(1);
+		}
+		if (oneCookie.indexOf(searchName) === 0) {
+		    return oneCookie.substring (searchName.length, oneCookie.length);
+		}
+	    }
+	    return "";   // fail
+	}
+
+	function delCookie (name) {
+	    // delete a cookie with given name
+	    // either of these works
+	    // document.cookie = name + "=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/";
+	    document.cookie = name + "=; expires=; path=/";
+	}
+</script>
+
+</body>
+</html>

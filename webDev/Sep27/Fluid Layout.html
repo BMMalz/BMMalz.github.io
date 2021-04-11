@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>Fluid Layout</title>
+    <style type="text/css">
+        body {
+            font-family: Times, serif;
+            font-size: 28px;
+        }
+        h2 {
+            font-family: Ariel, sans-serif;
+        }      
+        .sidebar {
+            width: 180px;
+            background-color: #A3ee56;
+            padding-bottom: 10px;
+        }
+
+        section {
+            margin-left: 180px;
+            background-color: #ffdddd;
+            display: inline-block;
+            margin-top: -162px;
+            float: left;
+        }
+        
+        nav ul{
+            list-style: none;
+            border-top: 2px solid #000;
+        }
+        
+        nav li{
+            border-bottom: 1px solid #666;
+            transition: background-color 2s;
+        }
+        
+        nav a, nav a:visited {
+            padding: 5px 5px 5px 15px;
+            display: block;
+            text-decoration: none;
+            background-color: #AA3333;
+        }
+        
+        nav a:hover, nav a:active{
+            background-color: #33AA33;
+            color: #F0F0F0;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h2>Here is the header</h2>
+    </header>
+    
+    <br>
+
+    <div class="sidebar">
+        My Menu
+        <nav>
+            <ul>
+                <li><a href="cs.wheatoncollege.edu/mgousie">mgousie</a></li>
+                <li><a href="wheatoncollege.edu">wheaton</a></li>
+            </ul>
+        </nav>
+    </div>
+    <section>
+        Fluid layouts can be good, because they change to the size of the browser.
+        However, when the browser gets large, then the lines can get really long, making
+        it hard to read.  When the browser gets small, then the layout effects may
+        not be what you're expecting.  
+    </section>
+
+</body>
+</html>

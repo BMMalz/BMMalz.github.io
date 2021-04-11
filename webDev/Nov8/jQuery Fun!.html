@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+    
+<!--
+    Michael Gousie
+    Web Development, Fall 2017
+    jquery3.html
+    
+    Show animation effects using jQuery and modifying CSS
+    *without* having a style sheet to begin with!
+-->
+
+<html>
+<head>
+    <title>jQuery Fun!</title>
+    <style>
+
+    </style>
+    <script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
+</head>
+<body>
+    
+    <h3>Lil' Quiz</h3>
+    
+    <form>
+        <p>Select your favorite superhero:</p>  <!-- name attr must be the same for unique choice -->
+        <input type="radio" name="quiz" class="quiz" value="spiderman" id="spider"><label id="spider">Spiderman</label><br>
+        <input type="radio" name="quiz" class="quiz" value="batman" id="batman"><label id="batman">Batman</label><br>
+        <input type="radio" name="quiz" class="quiz" value="incredible" id="incredible"><label id="incredible">Mr. Incredible</label><br>
+        <br>
+    </form>
+
+<img id="spider" src="images/spiderman.png" width="0px">
+<img id="bat" src="images/batman.jpg" width="0px">
+<img id="incred" src="images/mrIncredible.jpg" width="0px">
+
+<script>
+    // can add css rules directly from JS using jQuery
+    $("body").css("font-family", "sans-serif");
+    $("form").css("float", "left");
+    $("img").hide("fast");
+    $("img#bat").css("width", "100");
+    $("img#incred").width(100);
+    $("img#spider").width(100);
+
+    //alert ($("input[0]"));
+    $(".quiz").click(showAnswer);
+    
+    function showAnswer() {
+        if ($(this).val() === "spiderman") {
+            //alert ("no");
+            // no need to add a class and have a css rule for it:
+            //$("label#spider").addClass("spider");
+            // do this instead; add directly to css:
+            $("label#spider").css("color", "red");
+            $("img#bat").fadeOut("normal");
+            $("img#incred").slideUp("normal");
+            $("img#spider").show("slow");
+        }
+        else if ($(this).val() === "batman") {
+            //alert ("also no");
+            $("label#batman").css("font-style", "oblique");
+            $("img#spider").hide("slow");
+            $("img#incred").slideUp("normal");
+            $("img#bat").fadeIn("normal");
+        }
+        else {
+            //alert ("yes!!");
+            $("label#incredible").css("color", "yellow");
+            $("img#spider").hide("slow");
+            $("img#bat").fadeOut("normal");
+            $("img#incred").slideDown("normal");
+        }
+        
+    }
+</script>
+
+</body>
+</html>

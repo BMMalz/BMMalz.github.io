@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<!--
+    Michael Gousie
+    Web Development, Fall 2017
+    File: animation.html
+-->
+
+<html>
+<head>
+    <title>Animation Fun</title>
+    <style>
+        img#bg{            
+            width: 200px;
+            height: 100px;
+            position: fixed;
+            top: 0px;
+            left: 0px;
+            z-index: 1;
+        }
+        img#fg{
+            z-index: 2;
+            position: fixed;
+            top: 0px;
+            left: -60px;
+            animation-name: moveMoose;
+            animation-delay: 1s;
+            animation-duration: 2s;
+
+        }
+        @keyframes moveMoose{
+            from {top:0px;}
+            to {left: 210px;}
+            
+
+        }
+        div {
+            background-color: #FFFFFF;
+            z-index: 3;
+            position: absolute;
+            left: 200px;
+            top: 0px;
+            width: 100px;
+            height: 100px;
+
+        }
+        h2 {
+            position: fixed;
+            top: 100px;
+        }
+    </style>
+</head>
+
+<body>
+    <img id="fg" src="images/duck.gif">
+    <img id="bg" src="images/mountlogo0.gif">
+    <div></div>
+
+    <h2>The duck is amok!</h2>
+</body>
+</html>

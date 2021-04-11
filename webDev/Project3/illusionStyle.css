@@ -1,0 +1,194 @@
+   body
+        {
+            font-family: arial;
+            background-image: url("images/zigzagdark.png");
+            min-width: 1050px;
+        }
+        
+        h1.mainHeader
+        {
+            background-color: #c9f99f;
+            border: double 5px #5963b2;
+            border-radius: 3px;
+            padding: 5px;
+            margin-top: 5px;
+            margin-bottom: 0;   
+        }
+        table.linkBar{
+            table-layout: fixed;
+            background-color: #c9f99f;
+            width: 100%;
+            border-spacing: 5px;
+            border-style: double;
+            border-width: 3px;
+            border-color: #5963b2;
+        }
+        table.linkBar td{
+            background-color: #b2fffb;
+            border-radius: 5px;
+            font-size: 25px;
+            padding: 5px;
+            text-align: center;
+            border-style: double;
+            border-width: 2px;
+            transition: .5s;
+        }
+        table.linkBar td:hover{
+            background-color: #0345af;
+            border-radius: 20px;
+        }
+        table.subLinkBar{
+            width: 1025px;
+            background-color: #c9f99f;
+            table-layout: fixed;
+            border-spacing: 5px;
+            border-style: double;
+            border-width: 3px;
+            border-color: #5963b2;
+            margin: auto;
+        }
+        table.subLinkBar td{
+            background-color: #b2fffb;
+            border-radius: 5px;
+            font-size: 25px;
+            padding: 5px;
+            text-align: center;
+            border-style: double;
+            border-width: 2px;
+            transition: .5s;
+        }
+        
+        table.subLinkBar td:hover{
+            background-color: #0345af;
+            border-radius: 20px;
+        }
+        div.pageContent{
+            border-radius: 5px;
+            border: 4px groove #5963b2;
+            background-color: lightgray;
+            width: 1000px;
+            margin: 5px auto;
+            padding: 10px;
+        }
+        table.illusionLinks
+        {
+            width: 320px;
+            margin: auto;
+            text-align: center;
+            border-spacing: 20px;
+            
+        }
+        table.illusionLinks td{
+            border: solid 5px black;
+            padding: 5px;
+            transition: .5s;
+        }
+        .illusionLinks td:hover{
+            border-color: #0345af;
+        }
+        img.imgLink
+        {
+            transition: .5s;
+        }
+        img.imgLink:hover
+        {
+            width: 320px;
+            height: 320px;
+        }
+        #illusionSlide
+        {
+            display: block;
+            margin: 0 auto;
+        }
+        #imgForm
+        {
+            margin: 5px auto;
+            text-align: center;
+        }
+        #nameForm
+        {
+            margin: 5px auto;
+            text-align: center;
+        }
+        
+        .linkBar a
+        {
+            text-decoration: none;
+            color: black;
+            transition: .5s;
+        }
+        
+        .linkBar a:hover
+        {
+            color: white;
+        }
+        
+        .subLinkBar a
+        {
+            text-decoration: none;
+            color: black;
+            transition: .5s;
+        }
+        
+        .subLinkBar a:hover
+        {
+            color: white;
+        }
+        
+        h2
+        {
+            text-align: center;
+            margin: 10px auto;
+            border-bottom: groove 3px #0345af;
+            font-size: 30px;
+        }
+        
+        .illusionLinks a
+        {
+            font-weight: 600;
+            font-size: 20px;
+            text-decoration: none;
+            transition: .5s;
+            color: black;
+        }
+        
+        .illusionLinks a:hover
+        {
+            color: #0345af;
+        }
+        
+        blockquote
+        {
+            font-size: 18px;
+            font-family: verdana;
+            display: block;
+            padding: 5px 10px 5px 10px;
+            text-align: center;
+        }
+        
+        p.bottomNavigation
+        {
+            font-size: 15px;
+            color: black;
+            background-color: #c9f99f;
+            border: double 2px #5963b2;
+            border-radius: 3px;
+            padding: 5px 0px 5px 0px;
+            margin: 2px auto;
+            text-align: center;
+        }
+        
+        .bottomNavigation a
+        {
+            text-decoration: none;
+            padding: 0px 2px 0px 2px;
+            color: black;
+            transition: .5s;
+        }
+        
+        .bottomNavigation a:hover
+        {
+            color: white;
+            background-color: #0345af;
+            border-radius: 3px;
+        }
